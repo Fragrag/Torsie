@@ -18,8 +18,7 @@
 
 class QuadElement {
 
-	constructor(_width, _height, _x, _y) {
-		
+	constructor(_width, _height, _x, _y) {	
 		this.width = _width;
 		this.height = _height;
 		this.x = _x;
@@ -33,12 +32,10 @@ class QuadElement {
 			r: 128,
 			g: 128,
 			b: 128
-		};
-		
+		};	
 	}
 	
-	DrawQuad() {
-		
+	DrawQuad() {	
 		var originX = this.x * this.width;
 		var originY = this.y * this.height;
 		
@@ -50,8 +47,7 @@ class QuadElement {
 			(originX+this.width), originY,
 			(originX + (this.width + this.height)), (originY + this.height),
 			(originX + this.height), (originY + this.height)
-		);
-		
+		);	
 	}
 	
 	SetQuadColor(_r, _g, _b){
