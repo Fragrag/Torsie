@@ -27,10 +27,13 @@ class QuadElement {
 		
 	}
 	
-	DrawQuad() {
+	DrawQuad(r, g, b) {
 		
 		var originX = this.x * this.width;
 		var originY = this.y * this.height;
+		
+		strokeWeight(.5);
+		fill(r, g, b);
 		
 		quad(
 			originX, originY,
@@ -41,9 +44,4 @@ class QuadElement {
 		
 	}
 	
-	SetColor(_r, _g, _b) {
-		
-		fill(_r, _g, _b);
-		
-	}
 }
