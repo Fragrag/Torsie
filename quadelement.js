@@ -1,21 +1,3 @@
-/* Creating the class QuadElement which will be the building block of Torsion.
-
- The QuadElement will be defined by the following elements:
-	width, height
-	A drawn quad
-	FillquadColor,
-	StrokeThickness
-	
-	TODO: Define quad formula 
-	quad(
-	0,0, 
-	width,0, 
-	(height+width),(height), 
-	(width-height),(height)
-	);
- 
-*/
-
 class QuadElement {
 
 	constructor(_width, _height, _x, _y) {	
@@ -23,11 +5,6 @@ class QuadElement {
 		this.height = _height;
 		this.x = _x;
 		this.y = _y;
-		
-		// this.r = 128;
-		// this.g = 128;
-		// this.b = 128;
-		
 		this.QuadColor = {
 			r: 128,
 			g: 128,

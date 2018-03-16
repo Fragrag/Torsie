@@ -1,4 +1,4 @@
-var quadArray = [];
+var quads;
 var rows = 12;
 var columns = 12;
 var quadHeight = 50;
@@ -11,41 +11,16 @@ function setup() {
 	
 	//translate(-(quadWidth*2), 0);
 	
-	FillQuadArray(rows, columns, quadHeight, quadWidth, quadArray);
+	quads = new QuadArray(rows, columns, quadHeight, quadWidth);
+	quads.SetArray();
 	
 }
 
 function draw() {
-	DrawQuadArray(quadArray);
-	SetQuadArrayColor(quadArray, 128, 64, 64);
+	quads.DrawArray();
+	quads.SetArrayColor(128, 64, 64);
 }
 
-// Fill an initiated array with QuadElements 
-function FillQuadArray(rows, columns, quadHeight, quadWidth, arrayVariable) {
-	for (var i = 0; i <=rows; i++) {
-		arrayVariable.push([0]);
-		for (var j = 0; j <=columns; j++) {
-			arrayVariable[i][j] = new QuadElement(quadHeight, quadWidth, i, j);	
-		}
-	}
-}
-
-// Iterate through each element in QuadArray and call DrawQuad function
-function DrawQuadArray(arrayVariable) {
-	for(var i = 0; i < arrayVariable.length; i++){
-		for (var j = 0; j < arrayVariable[i].length - 1; j++){
-			arrayVariable[i][j].DrawQuad();
-		}
-	}
-}
-
-function SetQuadArrayColor(arrayVariable, r, g, b) {
-	for(var i = 0; i < arrayVariable.length; i++){
-		for (var j = 0; j < arrayVariable[i].length; j++) {
-			arrayVariable[i][j].SetQuadColor(r, g, b);
-		}
-	}	
-}
 
 
 
