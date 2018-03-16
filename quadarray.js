@@ -37,11 +37,19 @@ class QuadArray {
 		}	
 	}
 	
+	// Set Array to display ABPattern
 	SetArrayABPattern(r, g, b) {
 		for (var i = 0; i < this.Array.length; i++){
 			for (var j = 0 + i; j < this.Array[i].length; j = j + 2) {
 				this.Array[i][j].SetQuadColor(r, g, b);
 			}
+		}
+	}
+	
+	// Set certain row of Array to color
+	SetArrayRowColor(row, r, g, b) {
+		for (var i = 0; i < this.Array[row].length; i++) {
+			this.Array[row][i].length.SetQuadColor(r, g, b)
 		}
 	}
 }
