@@ -22,7 +22,7 @@ class QuadArray {
 	
 	// Iterate through this.Array and call DrawQuad function from QuadElement
 	DrawArray() {
-		for(var i = 0; i < this.Array.length; i++){
+		for (var i = 0; i < this.Array.length; i++){
 			for (var j = 0; j < this.Array[i].length - 1; j++){
 				this.Array[i][j].DrawQuad();
 			}
@@ -30,7 +30,7 @@ class QuadArray {
 	}
 	// Iterate through this.Array and call SetQuadColor function from QuadElement
 	SetArraySingleColor(r, g, b) {
-		for(var i = 0; i < this.Array.length; i++){
+		for (var i = 0; i < this.Array.length; i++){
 			for (var j = 0; j < this.Array[i].length; j++) {
 				this.Array[i][j].SetQuadColor(r, g, b);
 			}
@@ -38,8 +38,8 @@ class QuadArray {
 	}
 	
 	SetArrayABPattern(r, g, b) {
-		for(var i = 0; i < this.Array.length; i++){
-			for (var j = 0; (j + i) && j < this.Array[i].length; j++) {
+		for (var i = 0; i < this.Array.length; i++){
+			for (var j = 0 + i; j < this.Array[i].length; j = j + 2) {
 				this.Array[i][j].SetQuadColor(r, g, b);
 			}
 		}
