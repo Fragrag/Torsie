@@ -1,6 +1,6 @@
 var quads;
 var rows = 12;
-var columns = 12;
+var columns = 6;
 var quadHeight = 50;
 var quadWidth = 25;
 
@@ -18,7 +18,8 @@ function setup() {
 
 function draw() {
 	quads.DrawArray();
-	quads.SetArrayColor(128, 64, 64);
+	quads.SetArraySingleColor(128, 64, 64);
+	quads.SetArrayABPattern(128, 0, 0);
 }
 
 
