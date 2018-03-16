@@ -6,9 +6,9 @@ class QuadElement {
 		this.x = _x;
 		this.y = _y;
 		this.QuadColor = {
-			r: 128,
-			g: 128,
-			b: 128
+			r: 256,
+			g: 256,
+			b: 256
 		};	
 	}
 	

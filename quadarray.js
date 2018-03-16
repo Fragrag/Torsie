@@ -13,7 +13,7 @@ class QuadArray {
 		for (var i = 0; i < this.columns; i++) {
 			this.Array[i] = [];
 			for (var j = 0; j < this.rows; j++) {
-				this.Array[i][j] = new QuadElement(this.quadHeight, this.quadWidth, i, j);	
+				this.Array[i][j] = new QuadElement(this.quadHeight, this.quadWidth, j, i);	
 			}
 		}	
 	}
@@ -23,7 +23,7 @@ class QuadArray {
 	// Iterate through this.Array and call DrawQuad function from QuadElement
 	DrawArray() {
 		for (var i = 0; i < this.Array.length; i++){
-			for (var j = 0; j < this.Array[i].length - 1; j++){
+			for (var j = 0; j < this.Array[i].length; j++){
 				this.Array[i][j].DrawQuad();
 			}
 		}
