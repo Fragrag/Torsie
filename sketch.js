@@ -1,6 +1,6 @@
 var quads;
-var rows = 32;
-var columns = 64;
+var rows = 12;
+var columns = 20;
 var quadHeight = 30;
 var quadWidth = 30;
 

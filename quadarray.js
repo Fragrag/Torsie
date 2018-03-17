@@ -10,10 +10,10 @@ class QuadArray {
 	
 	// Fill this.Array with new QuadElements 
 	SetArray() {
-		for (var i = 0; i < this.rows; i++) {
-			this.Array[i] = [];
-			for (var j = 0; j < this.columns; j++) {
-				this.Array[i][j] = new QuadElement(this.quadHeight, this.quadWidth, j, i);	
+		for (var row = 0; row < this.rows; row++) {
+			this.Array[row] = [];
+			for (var col = 0; col < this.columns; col++) {
+				this.Array[row][col] = new QuadElement(this.quadHeight, this.quadWidth, col, row);	
 			}
 		}	
 	}
@@ -22,17 +22,17 @@ class QuadArray {
 	
 	// Iterate through this.Array and call DrawQuad function from QuadElement
 	DrawArray() {
-		for (var i = 0; i < this.Array.length; i++){
-			for (var j = 0; j < this.Array[i].length; j++){
-				this.Array[i][j].DrawQuad();
+		for (var row = 0; row < this.Array.length; row++){
+			for (var col = 0; col < this.Array[row].length; col++){
+				this.Array[row][col].DrawQuad();
 			}
 		}
 	}
 	// Iterate through this.Array and call SetQuadColor function from QuadElement
 	SetArraySingleColor(r, g, b) {
-		for (var i = 0; i < this.Array.length; i++){
-			for (var j = 0; j < this.Array[i].length; j++) {
-				this.Array[i][j].SetQuadColor(r, g, b);
+		for (var row = 0; row < this.Array.length; row++){
+			for (var col = 0; col < this.Array[row].length; col++) {
+				this.Array[row][col].SetQuadColor(r, g, b);
 			}
 		}	
 	}
@@ -40,9 +40,9 @@ class QuadArray {
 	// Set Array to display ABPattern
 	// TODO Fix ABPattern
 	SetArrayABPattern(r, g, b) {
-		for (var i = 0; i < this.Array.length; i++){
-			for (var j = 0 + i; j < this.Array[i].length; j = j + 2) {
-				this.Array[i][j].SetQuadColor(r, g, b);
+		for (var row = 0; row < this.Array.length; row++){
+			for (var col = 0; col < this.Array[row].length; col++) {
+				this.Array[row][col].SetQuadColor(r, g, b);
 			}
 		}
 	}
@@ -60,15 +60,15 @@ class QuadArray {
 	
 	// Set indicated row of Array to color
 	SetRowColor(row, r, g, b) {
-		for (var i = 0; i < this.Array[row].length; i++) {
-			this.Array[row][i].SetQuadColor(r, g, b);
+		for (var col = 0; col < this.Array[row].length; col++) {
+			this.Array[row][col].SetQuadColor(r, g, b);
 		}
 	}
 	
 	// Set indicated column of Array to color
 	SetColumnColor(colummn, r, g, b) {
-		for (var i = 0; i < this.Array.length; i++) {
-				this.Array[i][colummn].SetQuadColor(r, g, b);
+		for (var row = 0; row < this.Array.length; row++) {
+				this.Array[row][colummn].SetQuadColor(r, g, b);
 		}
 	}
 	
