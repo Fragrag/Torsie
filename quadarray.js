@@ -8,9 +8,9 @@ class QuadArray {
 		this.Array = [];
 	}
 	
-	/*
+	/*//////////////////////////////////
 	ARRAY SETUP FUNCTIONS
-	*/
+	//////////////////////////////////*/
 	
 	// Fill this.Array with new QuadElements 
 	SetArray() {
@@ -35,9 +35,9 @@ class QuadArray {
 		}
 	}
 	
-	/*
+	/*//////////////////////////////////
 	GENERAL ARRAY COLOUR FUNCTIONS
-	*/
+	//////////////////////////////////*/
 	
 	// Iterate through this.Array and call SetQuadColor function from QuadElement
 	SetArrayColor(r, g, b) {
@@ -68,12 +68,12 @@ class QuadArray {
 		}
 	}
 	
-	/*
+	/*//////////////////////////////////
 	SET ARRAY PATTERN FUNCTIONS
-	*/
+	//////////////////////////////////*/
 	
 	// Set Array to display ABPattern
-	SetABPattern(rA, gA, bA, rB, gB, bB) {
+	SetPatternAB(rA, gA, bA, rB, gB, bB) {
 		this.SetArrayColor(rA, gA, bA);
 		
 		for (var row = 0; row < this.Array.length; row++) {
@@ -86,27 +86,41 @@ class QuadArray {
 		}
 	}
 	
-	// TODO: Create function SetABBCPattern(rA, gA, bA, rB, gB, bB, rC, gC, bC)
+	// TODO: Create function SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC)
 	
-	// TODO: Create function SetADBCPattern(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD)
+	// TODO: Create function SetPatternADBC(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD)
 	
-	// TODO: Create function SetCABPattern(rA, gA, bA, rB, gB, bB, rC, gC, bC)
+	// TODO: Create function SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC)
 	
-	// TODO: Create function SetCABDABPattern(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD)
+	// TODO: Create function SetPatternCABDAB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD)
 	
-	// TODO: Create function SetCABDEBPattern(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE)
+	// TODO: Create function SetPatternCABDEB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE)
 	
-	// TODO: Create function SetCABDEFPattern(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE, rF, gF, bF)
+	// TODO: Create function SetPatternCABDEF(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE, rF, gF, bF)
 	
-	// Set Array to display Alternating Pattern
-	SetAlternateRowPattern(rA, gA, bA, rB, gB, bB) {
+	// Set Array to display Alternating Rows
+	SetPatternAlternatingRows(rA, gA, bA, rB, gB, bB) {
 		this.SetArrayColor(rA, gA, bA);
 		
 		for (var row = 0; row < this.Array.length; row++) {
 			
-			if (row % 2 == 0){ 
+			if (row % 2 == 0) { 
 				this.SetRowColor(row, rB, gB, bB);
 				
+			}
+		}
+	}
+	
+	// Set Array to display Alternating Columns
+	SetPatternAlternatingColumns(rA, gA, bA, rB, gB, bB) {
+		this.SetArrayColor(rA, gA, bA);
+		
+		for (var row = 0; row < this.Array.length; row++) {
+			for (var col = 0; col < this.Array[row].length; col++) {
+				
+				if (col % 2 == 0) {
+					this.SetColumnColor(col, rB, gB, bB);
+				}
 			}
 		}
 	}
