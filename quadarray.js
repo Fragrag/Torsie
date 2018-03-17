@@ -88,20 +88,12 @@ class QuadArray {
 	
 	// TODO: Create function SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC)
 	SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
-		this.SetArrayColor(rA, gA, bA);
+		this.SetPatternAB(rA, gA, bA, rB, gB, bB);
 		
 		for (var row = 0; row < this.Array.length; row++) {
-			if (row % 2 == 0) {
+			if (row % 2 != 0) {
 				for (var col = 0; col < this.Array[row].length; col++) {
-					if ((row - col) % 2 == 0){
-						this.Array[row][col].SetQuadColor(rB, gB, bB);
-					}
-					
-				}
-			}
-			else if (row % 2 != 0) {
-				for (var col = 0; col < this.Array[row].length; col++) {
-					if ((row - col) % 2 == 0){
+					if ((row - col) % 2 == 0) {
 						this.Array[row][col].SetQuadColor(rC, gC, bC);
 					}
 				}
