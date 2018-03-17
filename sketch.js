@@ -19,8 +19,8 @@ function setup() {
 function draw() {
 	quads.DrawArray();
 	
-	// quads.SetArraySingleColor(128, 64, 64);
-	// quads.SetArraySingleColor(128, 64, 128);
-	quads.SetArrayABPattern(128, 0, 0);
-	// quads.SetArrayAlternatePattern(20, 20, 20, 120, 120, 120);
+	// quads.SetSingleColor(128, 64, 64);
+	// quads.SetSingleColor(128, 64, 128);
+	quads.SetABPattern(0, 0, 0, 128, 0, 0);
+	// quads.SetAlternateRowPattern(20, 20, 20, 120, 120, 120);
 }
