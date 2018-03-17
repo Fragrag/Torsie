@@ -38,10 +38,22 @@ class QuadArray {
 	}
 	
 	// Set Array to display ABPattern
+	// TODO Fix ABPattern
 	SetArrayABPattern(r, g, b) {
 		for (var i = 0; i < this.Array.length; i++){
 			for (var j = 0 + i; j < this.Array[i].length; j = j + 2) {
 				this.Array[i][j].SetQuadColor(r, g, b);
+			}
+		}
+	}
+	
+	// Set Array to display Alternating Pattern
+	SetArrayAlternatePattern(r1, g1, b1, r2, g2, b2) {
+		this.SetArraySingleColor(r1, g1, b1);
+		
+		for (var row = 0; row < this.Array.length; row++) {
+			if (row % 2 == 0){ 
+				this.SetRowColor(row, r2, g2, b2);
 			}
 		}
 	}
