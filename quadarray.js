@@ -10,9 +10,9 @@ class QuadArray {
 	
 	// Fill this.Array with new QuadElements 
 	SetArray() {
-		for (var i = 0; i < this.columns; i++) {
+		for (var i = 0; i < this.rows; i++) {
 			this.Array[i] = [];
-			for (var j = 0; j < this.rows; j++) {
+			for (var j = 0; j < this.columns; j++) {
 				this.Array[i][j] = new QuadElement(this.quadHeight, this.quadWidth, j, i);	
 			}
 		}	
@@ -46,10 +46,18 @@ class QuadArray {
 		}
 	}
 	
-	// Set certain row of Array to color
-	SetArrayRowColor(row, r, g, b) {
+	// Set indicated row of Array to color
+	SetRowColor(row, r, g, b) {
 		for (var i = 0; i < this.Array[row].length; i++) {
-			this.Array[row][i].length.SetQuadColor(r, g, b)
+			this.Array[row][i].SetQuadColor(r, g, b);
 		}
 	}
+	
+	// Set indicated column of Array to color
+	SetColumnColor(colummn, r, g, b) {
+		for (var i = 0; i < this.Array.length; i++) {
+				this.Array[i][colummn].SetQuadColor(r, g, b);
+		}
+	}
+	
 }

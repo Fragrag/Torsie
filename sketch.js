@@ -21,10 +21,4 @@ function draw() {
 	// quads.SetArraySingleColor(128, 64, 64);
 	// quads.SetArraySingleColor(128, 64, 128);
 	quads.SetArrayABPattern(128, 0, 0);
-	// quads.SetArrayRowColor(2, 60, 60, 60);
 }
-
-
-
-
-
