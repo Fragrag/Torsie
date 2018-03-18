@@ -123,6 +123,25 @@ class QuadArray {
 	// RIGHT BRANCH FUNCTIONS
 	
 	// TODO: Create function SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC)
+	SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
+		// this.SetArrayColor(rA, gA, bA);
+		
+		for (var row = 0; row < this.Array.length; row++) {
+			for (var col = 0; col < this.Array[row].length; col++) {
+				
+				if (Math.abs(row - col) % 3 == 0) {
+					this.Array[row][col].SetQuadColor(rB, gB, bB);
+				}
+				else if (Math.abs(row - col) % 3 == 1) {
+					this.Array[row][col].SetQuadColor(rC, gC, bC);
+				}
+				else if (Math.abs(row - col) % 3 == 2) {
+					this.Array[row][col].SetQuadColor(rA, gA, bA);
+				}
+				
+			}			
+		}
+	}
 	
 	// TODO: Create function SetPatternCABDAB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD)
 	
