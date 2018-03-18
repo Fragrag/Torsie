@@ -72,7 +72,7 @@ class QuadArray {
 	SET ARRAY PATTERN FUNCTIONS
 	//////////////////////////////////*/
 	
-	// Set Array to display ABPattern
+	// Set Array to display PatternAB
 	SetPatternAB(rA, gA, bA, rB, gB, bB) {
 		this.SetArrayColor(rA, gA, bA);
 		
@@ -86,13 +86,16 @@ class QuadArray {
 		}
 	}
 	
-	// TODO: Create function SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC)
+	// LEFT BRANCH FUNCTIONS 
+	
+	// Set Array to display PatternABBC
 	SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
 		this.SetPatternAB(rA, gA, bA, rB, gB, bB);
 		
 		for (var row = 0; row < this.Array.length; row++) {
 			if (row % 2 != 0) {
 				for (var col = 0; col < this.Array[row].length; col++) {
+					
 					if ((row - col) % 2 == 0) {
 						this.Array[row][col].SetQuadColor(rC, gC, bC);
 					}
@@ -101,7 +104,23 @@ class QuadArray {
 		}
 	}
 	
-	// TODO: Create function SetPatternADBC(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD)
+	// Set Array to display PatternADBC
+	SetPatternADBC(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD) {
+		this.SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC);
+		
+		for (var row = 0; row < this.Array.length; row++) {
+			if (row % 2 == 0) {
+				for (var col = 0; col < this.Array[row].length; col++) { 
+				
+					if ((row - col) % 2 != 0) {
+						this.Array[row][col].SetQuadColor(rD, gD, bD);
+					}
+				}				
+			}
+		}
+	}
+	
+	// RIGHT BRANCH FUNCTIONS
 	
 	// TODO: Create function SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC)
 	
@@ -119,7 +138,6 @@ class QuadArray {
 			
 			if (row % 2 == 0) { 
 				this.SetRowColor(row, rB, gB, bB);
-				
 			}
 		}
 	}
