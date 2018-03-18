@@ -1,3 +1,11 @@
+/*
+QuadArray
+
+The actual 'cloth' of Torsie, it consists of a 2D array of QuadElements.
+This class will adjust the colours of the QuadElements in accordance to the patterns.
+
+*/
+
 class QuadArray {
 	
 	constructor(_rows, _columns, _quadHeight, _quadWidth) {
@@ -122,7 +130,11 @@ class QuadArray {
 	
 	// RIGHT BRANCH FUNCTIONS
 	
-	// TODO: Create function SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC)
+	// Set Array to display PatternADBC
+	// Currently has an issue where the centerline is a symmetry point.
+	// The right branch might need a different method to iterate through the array
+	// https://stackoverflow.com/questions/2862802/traverse-2d-array-matrix-diagonally
+	
 	SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
 		// this.SetArrayColor(rA, gA, bA);
 		

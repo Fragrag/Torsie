@@ -1,3 +1,9 @@
+/*
+QuadElement
+
+The building block of the QuadArray and the displayed image.
+*/
+
 class QuadElement {
 
 	constructor(_width, _height, _x, _y) {	
