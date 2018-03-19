@@ -31,6 +31,16 @@ class QuadArray {
 		}	
 	}
 	
+	// Populate this.CoordinateArray with coordinates
+	PopulateCoordinateArray() {
+		for (var row = 0; row < this.rows; row++) {
+			this.CoordinateArray[row] = [];
+			for (var col = 0; col < this.columns; col++) {
+				this.CoordinateArray[row][col] = [row, col];	
+			}
+		}	
+	}
+	
 	// Iterate through this.Array and call DrawQuad function from QuadElement
 	DrawArray() {
 		for (var row = 0; row < this.Array.length; row++) {
@@ -41,19 +51,23 @@ class QuadArray {
 			}
 		}
 	}
-	
-	// Populate this.CoordinateArray with coordinates
-	PopulateCoordinateArray() {
-		for (var row = 0; row < this.rows; row++) {
-			this.CoordinateArray[row] = [];
-			for (var col = 0; col < this.columns; col++) {
-				this.CoordinateArray[row][col] = [row, col];	
-			}
-		}	
-	}
 
 	// TODO Create IterateArray() function that will take as arguments a function and iteration rules
 
+	/*//////////////////////////////////
+	GETTER FUNCTIONS
+	//////////////////////////////////*/
+	
+	GetArray() {
+		
+		return this.Array;
+	}
+	
+	GetCoordinateArray() {
+		
+		return this.CoordinateArray;
+	}
+	
 	// Traverses through CoordinateArray[] diagonally and returns a DiagonalArray[]
 	// Based on the following StackOverflow post:
 	// https://stackoverflow.com/questions/2862802/traverse-2d-array-matrix-diagonally
