@@ -173,101 +173,11 @@ class QuadArray {
 	}
 	
 	// RIGHT BRANCH FUNCTIONS
-	// TODO: Clean up the following functions. 
-	// Possibly create a parent SetPatternRightArray() based on SetPatternCABDEF()
 	
-	// Set Array to display PatternADBC
-	SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
-		// Iterate through this.DiagonalArray
-		for (var row = 0; row < this.DiagonalArray.length; row++) {
-			for (var col = 0; col < this.DiagonalArray[row].length; col++) {
-				// The contents of the array in DiagonalArray[row][col] are the coordinates.
-				var x = this.DiagonalArray[row][col][0];
-				var y = this.DiagonalArray[row][col][1];
-				
- 				if (row % 3 == 0) {
-					this.Array[x][y].SetQuadColor(rB, gB, bB);
-				}
-				
-				else if (row % 3 == 1) {
-					this.Array[x][y].SetQuadColor(rC, gC, bC);
-				}
-				
-				else if (row % 3 == 2) {
-					this.Array[x][y].SetQuadColor(rA, gA, bA);
-				}
-				
-			}
-		}
-	}
-	
-	// Set Array to display PatternCABDAB
-	SetPatternCABDAB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD) {
-		// Iterate through this.DiagonalArray
-		for (var row = 0; row < this.DiagonalArray.length; row++) {
-			for (var col = 0; col < this.DiagonalArray[row].length; col++) {
-				// The contents of the array in DiagonalArray[row][col] are the coordinates.
-				var x = this.DiagonalArray[row][col][0];
-				var y = this.DiagonalArray[row][col][1];
-				
- 				if (row % 3 == 0) {
-					this.Array[x][y].SetQuadColor(rA, gA, bA);
-				}
-				
-				else if (row % 3 == 1) {
-					this.Array[x][y].SetQuadColor(rB, gB, bB);
-				}
-				
-				else if (row % 3 == 2) {
-					if (col % 2 == 0){
-						this.Array[x][y].SetQuadColor(rC, gC, bC);
-					}
-					else {
-						this.Array[x][y].SetQuadColor(rD, gD, bD);
-					}
-				}
-				
-			}
-		}
-	}
-	
-	// Set Array to display PatternCABDEB
-	SetPatternCABDEB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE) {
-		// Iterate through this.DiagonalArray
-		for (var row = 0; row < this.DiagonalArray.length; row++) {
-			for (var col = 0; col < this.DiagonalArray[row].length; col++) {
-				// The contents of the array in DiagonalArray[row][col] are the coordinates.
-				var x = this.DiagonalArray[row][col][0];
-				var y = this.DiagonalArray[row][col][1];
-				
- 				if (row % 3 == 0) {
-					this.Array[x][y].SetQuadColor(rA, gA, bA);
-				}
-				
-				else if (row % 3 == 1) {
-					if (col % 2 == 0) {
-						this.Array[x][y].SetQuadColor(rB, gB, bB);
-					}
-					else {
-						this.Array[x][y].SetQuadColor(rC, gC, bC);
-					}
-				}
-				
-				else if (row % 3 == 2) {
-					if (col % 2 == 0) {
-						this.Array[x][y].SetQuadColor(rD, gD, bD);
-					}
-					else {
-						this.Array[x][y].SetQuadColor(rE, gE, bE);
-					}
-				}
-				
-			}
-		}
-	}
-	
-	// Set Array to display PatternCABDEF
-	SetPatternCABDEF(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE, rF, gF, bF) {
+	// Set Array to display a Pattern from the right branch.
+	// This function serves as a template for patterns
+	// from the right branch of the reference image.
+	SetPatternFromRightBranch(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE, rF, gF, bF) {
 		// Iterate through this.DiagonalArray
 		for (var row = 0; row < this.DiagonalArray.length; row++) {
 			for (var col = 0; col < this.DiagonalArray[row].length; col++) {
@@ -280,7 +190,7 @@ class QuadArray {
 						this.Array[x][y].SetQuadColor(rA, gA, bA);
 					}
 					else {
-						this.Array[x][y].SetQuadColor(rF, gF, bF);
+						this.Array[x][y].SetQuadColor(rD, gD, bD);
 					}
 				}
 				
@@ -289,21 +199,65 @@ class QuadArray {
 						this.Array[x][y].SetQuadColor(rB, gB, bB);
 					}
 					else {
-						this.Array[x][y].SetQuadColor(rC, gC, bC);
+						this.Array[x][y].SetQuadColor(rE, gE, bE);
 					}
 				}
 				
 				else if (row % 3 == 2) {
 					if (col % 2 == 0) {
-						this.Array[x][y].SetQuadColor(rD, gD, bD);
+						this.Array[x][y].SetQuadColor(rC, gC, bC);
 					}
 					else {
-						this.Array[x][y].SetQuadColor(rE, gE, bE);
+						this.Array[x][y].SetQuadColor(rF, gF, bF);
 					}
 				}
 				
 			}
 		}
+	}
+	
+	// Set Array to display PatternADBC
+	SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
+		
+		this.SetPatternRightBranch(rA, gA, bA, 
+								   rB, gB, bB, 
+								   rC, gC, bC,
+								   rA, gA, bA, 
+								   rB, gB, bB, 
+								   rC, gC, bC);
+	}
+	
+	// Set Array to display PatternCABDAB
+	SetPatternCABDAB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD) {
+		
+		this.SetPatternRightBranch(rA, gA, bA, 
+								   rB, gB, bB, 
+								   rC, gC, bC,
+								   rD, gD, bD, 
+								   rB, gB, bB, 
+								   rC, gC, bC);
+	}
+	
+	// Set Array to display PatternCABDEB
+	SetPatternCABDEB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE) {
+		
+		this.SetPatternRightBranch(rA, gA, bA, 
+								   rB, gB, bB, 
+								   rC, gC, bC,
+								   rD, gD, bD, 
+								   rE, gE, bE, 
+								   rC, gC, bC);
+	}
+	
+	// Set Array to display PatternCABDEF
+	SetPatternCABDEF(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE, rF, gF, bF) {
+		
+		this.SetPatternRightBranch(rA, gA, bA, 
+								   rB, gB, bB, 
+								   rC, gC, bC,
+								   rD, gD, bD, 
+								   rE, gE, bE, 
+								   rF, gF, bF);
 	}
 	
 	// Set Array to display Alternating Rows
@@ -331,4 +285,5 @@ class QuadArray {
 			}
 		}
 	}
+
 }
