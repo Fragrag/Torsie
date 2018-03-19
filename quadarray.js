@@ -54,32 +54,25 @@ class QuadArray {
 
 	// TODO Create IterateArray() function that will take as arguments a function and iteration rules
 
-	// TODO Create GetDiagonalArray()
+	// Traverses through CoordinateArray[] diagonally and returns a DiagonalArray[]
+	// Based on the following StackOverflow post:
 	// https://stackoverflow.com/questions/2862802/traverse-2d-array-matrix-diagonally
-	// https://stackoverflow.com/questions/1779199/traverse-matrix-in-diagonal-strips
-	
-	// This function will first create a coordinate array such as the following based on this.rows and this.columns
-	// (0,0) (0,1) (0,2) (0,3)
-	// (1,0) (1,1) (1,2) (1,3)
-	// (2,0) (2,1) (2,2) (2,3)
-	//
-	// Practically the diagonals are set in this grid
-	// (#,#) (#,#) (0,0) (0,1) (0,2) (0,3)
-	//       (#,#) (1,0) (1,1) (1,2) (1,3) (#,#)
-	//             (2,0) (2,1) (2,2) (2,3) (#,#) (#,#)
-	//
-	// This is basically a skewed rectangle. When normalised it would look like this:
-	// (#,#) (#,#) (0,0) (0,1) (0,2) (0,3)
-	// (#,#) (1,0) (1,1) (1,2) (1,3) (#,#)
-	// (2,0) (2,1) (2,2) (2,3) (#,#) (#,#)
-	//
-	// Once created, this function then returns this array which practically has the coordinates for the diagonals which we can call.
-	// For example, If we call for alternating diagonals starting from 0, we can iterate through the array and it will return
-	// (2,0), 
-	// (0,0), (1,1) (2,2)
-	// (0,2), (1,3)
-	// We would take these coordinates, run on them QuadElement.SetQuadColor and change their colors.
-
+	GetDiagonalCoordinateArray() {
+		
+		var DiagonalArray = [];
+		
+		for (var i = 1 - this.rows; i < this.columns; i++) {
+			var group = [];
+			for (var j = 0; j < rows; j++) {
+				if ((i + j) >= 0 && (i + j) < columns) {
+					group.push(this.CoordinateArray[j][i + j])
+				}
+			}
+			DiagonalArray.push(group);
+		}
+		
+		return DiagonalArray;
+	}
 	
 	
 	/*//////////////////////////////////
