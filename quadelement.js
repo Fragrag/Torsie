@@ -41,4 +41,7 @@ class QuadElement {
 		
 	}
 	
+	// TODO SetTorsieType()
+	// Basically set the quads to display an S or Z torsion type.
+	
 }

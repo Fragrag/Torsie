@@ -30,8 +30,6 @@ class QuadArray {
 		}	
 	}
 	
-	// TODO Create IterateArray() function that will take as arguments a function and iteration rules
-	
 	// Iterate through this.Array and call DrawQuad function from QuadElement
 	DrawArray() {
 		for (var row = 0; row < this.Array.length; row++) {
@@ -42,6 +40,36 @@ class QuadArray {
 			}
 		}
 	}
+
+	// TODO Create IterateArray() function that will take as arguments a function and iteration rules
+
+	// TODO Create GetDiagonalArray()
+	// https://stackoverflow.com/questions/2862802/traverse-2d-array-matrix-diagonally
+	// https://stackoverflow.com/questions/1779199/traverse-matrix-in-diagonal-strips
+	
+	// This function will first create a coordinate array such as the following based on this.rows and this.columns
+	// (0,0) (0,1) (0,2) (0,3)
+	// (1,0) (1,1) (1,2) (1,3)
+	// (2,0) (2,1) (2,2) (2,3)
+	//
+	// Practically the diagonals are set in this grid
+	// (#,#) (#,#) (0,0) (0,1) (0,2) (0,3)
+	//       (#,#) (1,0) (1,1) (1,2) (1,3) (#,#)
+	//             (2,0) (2,1) (2,2) (2,3) (#,#) (#,#)
+	//
+	// This is basically a skewed rectangle. When normalised it would look like this:
+	// (#,#) (#,#) (0,0) (0,1) (0,2) (0,3)
+	// (#,#) (1,0) (1,1) (1,2) (1,3) (#,#)
+	// (2,0) (2,1) (2,2) (2,3) (#,#) (#,#)
+	//
+	// Once created, this function then returns this array which practically has the coordinates for the diagonals which we can call.
+	// For example, If we call for alternating diagonals starting from 0, we can iterate through the array and it will return
+	// (2,0), 
+	// (0,0), (1,1) (2,2)
+	// (0,2), (1,3)
+	// We would take these coordinates, run on them QuadElement.SetQuadColor and change their colors.
+
+	
 	
 	/*//////////////////////////////////
 	GENERAL ARRAY COLOUR FUNCTIONS
@@ -133,8 +161,8 @@ class QuadArray {
 	// Set Array to display PatternADBC
 	// Currently has an issue where the centerline is a symmetry point.
 	// The right branch might need a different method to iterate through the array
-	// https://stackoverflow.com/questions/2862802/traverse-2d-array-matrix-diagonally
-	
+	// This different method is documented at this.GetDiagonalArray()
+
 	SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
 		// this.SetArrayColor(rA, gA, bA);
 		
