@@ -173,14 +173,11 @@ class QuadArray {
 	}
 	
 	// RIGHT BRANCH FUNCTIONS
+	// TODO: Clean up the following functions. 
+	// Possibly create a parent SetPatternRightArray() based on SetPatternCABDEF()
 	
 	// Set Array to display PatternADBC
-	// Currently has an issue where the centerline is a symmetry point.
-	// The right branch might need a different method to iterate through the array
-	// This different method is documented at this.GetDiagonalArray()
-
 	SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
-
 		// Iterate through this.DiagonalArray
 		for (var row = 0; row < this.DiagonalArray.length; row++) {
 			for (var col = 0; col < this.DiagonalArray[row].length; col++) {
@@ -191,21 +188,123 @@ class QuadArray {
  				if (row % 3 == 0) {
 					this.Array[x][y].SetQuadColor(rB, gB, bB);
 				}
+				
 				else if (row % 3 == 1) {
 					this.Array[x][y].SetQuadColor(rC, gC, bC);
 				}
+				
 				else if (row % 3 == 2) {
 					this.Array[x][y].SetQuadColor(rA, gA, bA);
 				}
-			}			
+				
+			}
 		}
 	}
 	
-	// TODO: Create function SetPatternCABDAB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD)
+	// Set Array to display PatternCABDAB
+	SetPatternCABDAB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD) {
+		// Iterate through this.DiagonalArray
+		for (var row = 0; row < this.DiagonalArray.length; row++) {
+			for (var col = 0; col < this.DiagonalArray[row].length; col++) {
+				// The contents of the array in DiagonalArray[row][col] are the coordinates.
+				var x = this.DiagonalArray[row][col][0];
+				var y = this.DiagonalArray[row][col][1];
+				
+ 				if (row % 3 == 0) {
+					this.Array[x][y].SetQuadColor(rA, gA, bA);
+				}
+				
+				else if (row % 3 == 1) {
+					this.Array[x][y].SetQuadColor(rB, gB, bB);
+				}
+				
+				else if (row % 3 == 2) {
+					if (col % 2 == 0){
+						this.Array[x][y].SetQuadColor(rC, gC, bC);
+					}
+					else {
+						this.Array[x][y].SetQuadColor(rD, gD, bD);
+					}
+				}
+				
+			}
+		}
+	}
 	
-	// TODO: Create function SetPatternCABDEB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE)
+	// Set Array to display PatternCABDEB
+	SetPatternCABDEB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE) {
+		// Iterate through this.DiagonalArray
+		for (var row = 0; row < this.DiagonalArray.length; row++) {
+			for (var col = 0; col < this.DiagonalArray[row].length; col++) {
+				// The contents of the array in DiagonalArray[row][col] are the coordinates.
+				var x = this.DiagonalArray[row][col][0];
+				var y = this.DiagonalArray[row][col][1];
+				
+ 				if (row % 3 == 0) {
+					this.Array[x][y].SetQuadColor(rA, gA, bA);
+				}
+				
+				else if (row % 3 == 1) {
+					if (col % 2 == 0) {
+						this.Array[x][y].SetQuadColor(rB, gB, bB);
+					}
+					else {
+						this.Array[x][y].SetQuadColor(rC, gC, bC);
+					}
+				}
+				
+				else if (row % 3 == 2) {
+					if (col % 2 == 0) {
+						this.Array[x][y].SetQuadColor(rD, gD, bD);
+					}
+					else {
+						this.Array[x][y].SetQuadColor(rE, gE, bE);
+					}
+				}
+				
+			}
+		}
+	}
 	
-	// TODO: Create function SetPatternCABDEF(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE, rF, gF, bF)
+	// Set Array to display PatternCABDEF
+	SetPatternCABDEF(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE, rF, gF, bF) {
+		// Iterate through this.DiagonalArray
+		for (var row = 0; row < this.DiagonalArray.length; row++) {
+			for (var col = 0; col < this.DiagonalArray[row].length; col++) {
+				// The contents of the array in DiagonalArray[row][col] are the coordinates.
+				var x = this.DiagonalArray[row][col][0];
+				var y = this.DiagonalArray[row][col][1];
+				
+ 				if (row % 3 == 0) {
+					if (col % 2 == 0) {
+						this.Array[x][y].SetQuadColor(rA, gA, bA);
+					}
+					else {
+						this.Array[x][y].SetQuadColor(rF, gF, bF);
+					}
+				}
+				
+				else if (row % 3 == 1) {
+					if (col % 2 == 0) {
+						this.Array[x][y].SetQuadColor(rB, gB, bB);
+					}
+					else {
+						this.Array[x][y].SetQuadColor(rC, gC, bC);
+					}
+				}
+				
+				else if (row % 3 == 2) {
+					if (col % 2 == 0) {
+						this.Array[x][y].SetQuadColor(rD, gD, bD);
+					}
+					else {
+						this.Array[x][y].SetQuadColor(rE, gE, bE);
+					}
+				}
+				
+			}
+		}
+	}
 	
 	// Set Array to display Alternating Rows
 	SetPatternAlternatingRows(rA, gA, bA, rB, gB, bB) {
