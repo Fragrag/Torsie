@@ -14,7 +14,8 @@ function setup() {
 	createCanvas(750, 750);
 	
 	quads = new QuadArray(rows, columns, quadHeight, quadWidth);
-	quads.SetArray();
+	quads.PopulateArray();
+	quads.PopulateCoordinateArray();
 	
 }
 

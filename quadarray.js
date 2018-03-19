@@ -14,14 +14,15 @@ class QuadArray {
 		this.quadHeight = _quadHeight;
 		this.quadWidth = _quadWidth;
 		this.Array = [];
+		this.CoordinateArray = [];
 	}
 	
 	/*//////////////////////////////////
 	ARRAY SETUP FUNCTIONS
 	//////////////////////////////////*/
 	
-	// Fill this.Array with new QuadElements 
-	SetArray() {
+	// Populate this.Array with new QuadElements 
+	PopulateArray() {
 		for (var row = 0; row < this.rows; row++) {
 			this.Array[row] = [];
 			for (var col = 0; col < this.columns; col++) {
@@ -39,6 +40,16 @@ class QuadArray {
 				
 			}
 		}
+	}
+	
+	// Populate this.CoordinateArray with coordinates
+	PopulateCoordinateArray() {
+		for (var row = 0; row < this.rows; row++) {
+			this.CoordinateArray[row] = [];
+			for (var col = 0; col < this.columns; col++) {
+				this.CoordinateArray[row][col] = [row, col];	
+			}
+		}	
 	}
 
 	// TODO Create IterateArray() function that will take as arguments a function and iteration rules
