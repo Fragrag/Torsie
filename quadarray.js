@@ -15,7 +15,7 @@ class QuadArray {
 		this.quadWidth = _quadWidth;
 		this.Array = [];
 		this.CoordinateArray = [];
-		this.DiagonalArray = []
+		this.DiagonalArray = [];
 	}
 	
 	/*//////////////////////////////////
@@ -56,7 +56,7 @@ class QuadArray {
 			var group = [];
 			for (var j = 0; j < rows; j++) {
 				if ((i + j) >= 0 && (i + j) < columns) {
-					group.push(this.CoordinateArray[j][i + j])
+					group.push(this.CoordinateArray[j][i + j]);
 				}
 			}
 			
@@ -74,8 +74,6 @@ class QuadArray {
 			}
 		}
 	}
-
-	// TODO Create IterateArray() function that will take as arguments a function and iteration rules
 
 	/*//////////////////////////////////
 	GETTER FUNCTIONS
@@ -102,6 +100,32 @@ class QuadArray {
 		}	
 	}
 	
+	// Set Array to display Alternating Rows
+	SetPatternAlternatingRows(rA, gA, bA, rB, gB, bB) {
+		this.SetArrayColor(rA, gA, bA);
+		
+		for (var row = 0; row < this.Array.length; row++) {
+			
+			if (row % 2 == 0) { 
+				this.SetRowColor(row, rB, gB, bB);
+			}
+		}
+	}
+	
+	// Set Array to display Alternating Columns
+	SetPatternAlternatingColumns(rA, gA, bA, rB, gB, bB) {
+		this.SetArrayColor(rA, gA, bA);
+		
+		for (var row = 0; row < this.Array.length; row++) {
+			for (var col = 0; col < this.Array[row].length; col++) {
+				
+				if (col % 2 == 0) {
+					this.SetColumnColor(col, rB, gB, bB);
+				}
+			}
+		}
+	}
+	
 	// Set indicated row of Array to color
 	SetRowColor(row, r, g, b) {
 		for (var col = 0; col < this.Array[row].length; col++) {
@@ -116,7 +140,7 @@ class QuadArray {
 		for (var row = 0; row < this.Array.length; row++) {
 			
 				this.Array[row][colummn].SetQuadColor(r, g, b);
-				
+
 		}
 	}
 	
@@ -139,7 +163,7 @@ class QuadArray {
 	}
 	
 	// LEFT BRANCH FUNCTIONS 
-	
+
 	// Set Array to display PatternABBC
 	SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
 		this.SetPatternAB(rA, gA, bA, rB, gB, bB);
@@ -218,72 +242,42 @@ class QuadArray {
 	
 	// Set Array to display PatternADBC
 	SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
-		
-		this.SetPatternFromRightBranch(rA, gA, bA, 
-								   rB, gB, bB, 
-								   rC, gC, bC,
-								   rA, gA, bA, 
-								   rB, gB, bB, 
-								   rC, gC, bC);
+		this.SetPatternFromRightBranch(	rA, gA, bA, 
+										rB, gB, bB, 
+										rC, gC, bC,
+										rA, gA, bA, 
+										rB, gB, bB, 
+										rC, gC, bC);
 	}
 	
 	// Set Array to display PatternCABDAB
 	SetPatternCABDAB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD) {
-		
-		this.SetPatternFromRightBranch(rA, gA, bA, 
-								   rB, gB, bB, 
-								   rC, gC, bC,
-								   rD, gD, bD, 
-								   rB, gB, bB, 
-								   rC, gC, bC);
+		this.SetPatternFromRightBranch(	rA, gA, bA, 
+										rB, gB, bB, 
+										rC, gC, bC,
+										rD, gD, bD, 
+										rB, gB, bB, 
+										rC, gC, bC);
 	}
 	
 	// Set Array to display PatternCABDEB
 	SetPatternCABDEB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE) {
-		
-		this.SetPatternFromRightBranch(rA, gA, bA, 
-								   rB, gB, bB, 
-								   rC, gC, bC,
-								   rD, gD, bD, 
-								   rE, gE, bE, 
-								   rC, gC, bC);
+		this.SetPatternFromRightBranch(	rA, gA, bA, 
+										rB, gB, bB, 
+										rC, gC, bC,
+										rD, gD, bD, 
+										rE, gE, bE, 
+										rC, gC, bC);
 	}
 	
 	// Set Array to display PatternCABDEF
 	SetPatternCABDEF(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE, rF, gF, bF) {
-		
-		this.SetPatternFromRightBranch(rA, gA, bA, 
-								   rB, gB, bB, 
-								   rC, gC, bC,
-								   rD, gD, bD, 
-								   rE, gE, bE, 
-								   rF, gF, bF);
-	}
-	
-	// Set Array to display Alternating Rows
-	SetPatternAlternatingRows(rA, gA, bA, rB, gB, bB) {
-		this.SetArrayColor(rA, gA, bA);
-		
-		for (var row = 0; row < this.Array.length; row++) {
-			
-			if (row % 2 == 0) { 
-				this.SetRowColor(row, rB, gB, bB);
-			}
-		}
-	}
-	
-	// Set Array to display Alternating Columns
-	SetPatternAlternatingColumns(rA, gA, bA, rB, gB, bB) {
-		this.SetArrayColor(rA, gA, bA);
-		
-		for (var row = 0; row < this.Array.length; row++) {
-			for (var col = 0; col < this.Array[row].length; col++) {
-				
-				if (col % 2 == 0) {
-					this.SetColumnColor(col, rB, gB, bB);
-				}
-			}
-		}
+		this.SetPatternFromRightBranch(	rA, gA, bA, 
+										rB, gB, bB, 
+										rC, gC, bC,
+										rD, gD, bD, 
+										rE, gE, bE, 
+										rF, gF, bF);
 	}
 
 }
