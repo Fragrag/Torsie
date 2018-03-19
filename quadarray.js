@@ -15,11 +15,18 @@ class QuadArray {
 		this.quadWidth = _quadWidth;
 		this.Array = [];
 		this.CoordinateArray = [];
+		this.DiagonalArray = []
 	}
 	
 	/*//////////////////////////////////
 	ARRAY SETUP FUNCTIONS
 	//////////////////////////////////*/
+	
+	SetupQuadArray() {
+		this.PopulateArray();
+		this.PopulateCoordinateArray();
+		this.PopulateDiagonalArray();
+	}
 	
 	// Populate this.Array with new QuadElements 
 	PopulateArray() {
@@ -41,6 +48,22 @@ class QuadArray {
 		}	
 	}
 	
+	// Traverses through CoordinateArray[] diagonally and populates DiagonalArray[]
+	// Based on the following StackOverflow post:
+	// https://stackoverflow.com/questions/2862802/traverse-2d-array-matrix-diagonally
+	PopulateDiagonalArray() {
+		for (var i = 1 - this.rows; i < this.columns; i++) {
+			var group = [];
+			for (var j = 0; j < rows; j++) {
+				if ((i + j) >= 0 && (i + j) < columns) {
+					group.push(this.CoordinateArray[j][i + j])
+				}
+			}
+			
+			this.DiagonalArray.push(group);
+		}
+	}
+	
 	// Iterate through this.Array and call DrawQuad function from QuadElement
 	DrawArray() {
 		for (var row = 0; row < this.Array.length; row++) {
@@ -58,36 +81,11 @@ class QuadArray {
 	GETTER FUNCTIONS
 	//////////////////////////////////*/
 	
-	GetArray() {
-		
-		return this.Array;
-	}
+	GetArray() { return this.Array; }
 	
-	GetCoordinateArray() {
-		
-		return this.CoordinateArray;
-	}
+	GetCoordinateArray() { return this.CoordinateArray; }
 	
-	// Traverses through CoordinateArray[] diagonally and returns a DiagonalArray[]
-	// Based on the following StackOverflow post:
-	// https://stackoverflow.com/questions/2862802/traverse-2d-array-matrix-diagonally
-	GetDiagonalCoordinateArray() {
-		
-		var DiagonalArray = [];
-		
-		for (var i = 1 - this.rows; i < this.columns; i++) {
-			var group = [];
-			for (var j = 0; j < rows; j++) {
-				if ((i + j) >= 0 && (i + j) < columns) {
-					group.push(this.CoordinateArray[j][i + j])
-				}
-			}
-			DiagonalArray.push(group);
-		}
-		
-		return DiagonalArray;
-	}
-	
+	GetDiagonalCoordinateArray() { return this.DiagonalArray; }
 	
 	/*//////////////////////////////////
 	GENERAL ARRAY COLOUR FUNCTIONS
@@ -182,21 +180,23 @@ class QuadArray {
 	// This different method is documented at this.GetDiagonalArray()
 
 	SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
-		// this.SetArrayColor(rA, gA, bA);
-		
-		for (var row = 0; row < this.Array.length; row++) {
-			for (var col = 0; col < this.Array[row].length; col++) {
+
+		// Iterate through this.DiagonalArray
+		for (var row = 0; row < this.DiagonalArray.length; row++) {
+			for (var col = 0; col < this.DiagonalArray[row].length; col++) {
+				// The contents of the array in DiagonalArray[row][col] are the coordinates.
+				var x = this.DiagonalArray[row][col][0];
+				var y = this.DiagonalArray[row][col][1];
 				
-				if (Math.abs(row - col) % 3 == 0) {
-					this.Array[row][col].SetQuadColor(rB, gB, bB);
+ 				if (row % 3 == 0) {
+					this.Array[x][y].SetQuadColor(rB, gB, bB);
 				}
-				else if (Math.abs(row - col) % 3 == 1) {
-					this.Array[row][col].SetQuadColor(rC, gC, bC);
+				else if (row % 3 == 1) {
+					this.Array[x][y].SetQuadColor(rC, gC, bC);
 				}
-				else if (Math.abs(row - col) % 3 == 2) {
-					this.Array[row][col].SetQuadColor(rA, gA, bA);
+				else if (row % 3 == 2) {
+					this.Array[x][y].SetQuadColor(rA, gA, bA);
 				}
-				
 			}			
 		}
 	}
