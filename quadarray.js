@@ -16,11 +16,10 @@ class QuadArray {
 		this.columns = _columns;
 		this.quadHeight = _quadHeight;
 		this.quadWidth = _quadWidth;
-		this.Array = [];
+		this.QuadArray = [];
 		this.CoordinateArray = [];
 		this.DiagonalArray = [];
 		
-
 	}
 	
 	/*//////////////////////////////////
@@ -28,17 +27,17 @@ class QuadArray {
 	//////////////////////////////////*/
 	
 	SetupQuadArray() {
-		this.PopulateArray();
+		this.PopulateQuadArray();
 		this.PopulateCoordinateArray();
 		this.PopulateDiagonalArray();
 	}
 	
-	// Populate this.Array with new QuadElements 
-	PopulateArray() {
+	// Populate this.QuadArray with new QuadElements 
+	PopulateQuadArray() {
 		for (var row = 0; row < this.rows; row++) {
-			this.Array[row] = [];
+			this.QuadArray[row] = [];
 			for (var col = 0; col < this.columns; col++) {
-				this.Array[row][col] = new QuadElement(this.quadHeight, this.quadWidth, col, row);	
+				this.QuadArray[row][col] = new QuadElement(this.quadHeight, this.quadWidth, col, row);	
 			}
 		}	
 	}
@@ -69,12 +68,12 @@ class QuadArray {
 		}
 	}
 	
-	// Iterate through this.Array and call DrawQuad function from QuadElement
+	// Iterate through this.QuadArray and call DrawQuad function from QuadElement
 	DrawArray() {
-		for (var row = 0; row < this.Array.length; row++) {
-			for (var col = 0; col < this.Array[row].length; col++) {
+		for (var row = 0; row < this.QuadArray.length; row++) {
+			for (var col = 0; col < this.QuadArray[row].length; col++) {
 				
-				this.Array[row][col].DrawQuad();
+				this.QuadArray[row][col].DrawQuad();
 				
 			}
 		}
@@ -84,7 +83,7 @@ class QuadArray {
 	GETTER FUNCTIONS
 	//////////////////////////////////*/
 	
-	GetArray() { return this.Array; }
+	GetArray() { return this.QuadArray; }
 	
 	GetCoordinateArray() { return this.CoordinateArray; }
 	
@@ -94,12 +93,12 @@ class QuadArray {
 	GENERAL ARRAY COLOUR FUNCTIONS
 	//////////////////////////////////*/
 	
-	// Iterate through this.Array and call SetQuadColor function from QuadElement
+	// Iterate through this.QuadArray and call SetQuadColor function from QuadElement
 	SetArrayColor(r, g, b) {
-		for (var row = 0; row < this.Array.length; row++) {
-			for (var col = 0; col < this.Array[row].length; col++) {
+		for (var row = 0; row < this.QuadArray.length; row++) {
+			for (var col = 0; col < this.QuadArray[row].length; col++) {
 				
-				this.Array[row][col].SetQuadColor(r, g, b);
+				this.QuadArray[row][col].SetQuadColor(r, g, b);
 				
 			}
 		}	
@@ -109,7 +108,7 @@ class QuadArray {
 	SetPatternAlternatingRows(rA, gA, bA, rB, gB, bB) {
 		this.SetArrayColor(rA, gA, bA);
 		
-		for (var row = 0; row < this.Array.length; row++) {
+		for (var row = 0; row < this.QuadArray.length; row++) {
 			
 			if (row % 2 == 0) { 
 				this.SetRowColor(row, rB, gB, bB);
@@ -121,8 +120,8 @@ class QuadArray {
 	SetPatternAlternatingColumns(rA, gA, bA, rB, gB, bB) {
 		this.SetArrayColor(rA, gA, bA);
 		
-		for (var row = 0; row < this.Array.length; row++) {
-			for (var col = 0; col < this.Array[row].length; col++) {
+		for (var row = 0; row < this.QuadArray.length; row++) {
+			for (var col = 0; col < this.QuadArray[row].length; col++) {
 				
 				if (col % 2 == 0) {
 					this.SetColumnColor(col, rB, gB, bB);
@@ -133,18 +132,18 @@ class QuadArray {
 	
 	// Set indicated row of Array to color
 	SetRowColor(row, r, g, b) {
-		for (var col = 0; col < this.Array[row].length; col++) {
+		for (var col = 0; col < this.QuadArray[row].length; col++) {
 			
-			this.Array[row][col].SetQuadColor(r, g, b);
+			this.QuadArray[row][col].SetQuadColor(r, g, b);
 			
 		}
 	}
 	
 	// Set indicated column of Array to color
 	SetColumnColor(colummn, r, g, b) {
-		for (var row = 0; row < this.Array.length; row++) {
+		for (var row = 0; row < this.QuadArray.length; row++) {
 			
-				this.Array[row][colummn].SetQuadColor(r, g, b);
+				this.QuadArray[row][colummn].SetQuadColor(r, g, b);
 
 		}
 	}
@@ -157,11 +156,11 @@ class QuadArray {
 	SetPatternAB(rA, gA, bA, rB, gB, bB) {
 		this.SetArrayColor(rA, gA, bA);
 		
-		for (var row = 0; row < this.Array.length; row++) {
-			for (var col = 0; col < this.Array[row].length; col++) {
+		for (var row = 0; row < this.QuadArray.length; row++) {
+			for (var col = 0; col < this.QuadArray[row].length; col++) {
 				
 				if ((row - col) % 2 == 0) {
-					this.Array[row][col].SetQuadColor(rB, gB, bB);
+					this.QuadArray[row][col].SetQuadColor(rB, gB, bB);
 				}
 			}
 		}
@@ -173,12 +172,12 @@ class QuadArray {
 	SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
 		this.SetPatternAB(rA, gA, bA, rB, gB, bB);
 		
-		for (var row = 0; row < this.Array.length; row++) {
+		for (var row = 0; row < this.QuadArray.length; row++) {
 			if (row % 2 != 0) {
-				for (var col = 0; col < this.Array[row].length; col++) {
+				for (var col = 0; col < this.QuadArray[row].length; col++) {
 					
 					if ((row - col) % 2 == 0) {
-						this.Array[row][col].SetQuadColor(rC, gC, bC);
+						this.QuadArray[row][col].SetQuadColor(rC, gC, bC);
 					}
 				}
 			}
@@ -189,12 +188,12 @@ class QuadArray {
 	SetPatternADBC(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD) {
 		this.SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC);
 		
-		for (var row = 0; row < this.Array.length; row++) {
+		for (var row = 0; row < this.QuadArray.length; row++) {
 			if (row % 2 == 0) {
-				for (var col = 0; col < this.Array[row].length; col++) { 
+				for (var col = 0; col < this.QuadArray[row].length; col++) { 
 				
 					if ((row - col) % 2 != 0) {
-						this.Array[row][col].SetQuadColor(rD, gD, bD);
+						this.QuadArray[row][col].SetQuadColor(rD, gD, bD);
 					}
 				}				
 			}
@@ -216,28 +215,28 @@ class QuadArray {
 				
  				if (row % 3 == 0) {
 					if (col % 2 == 0) {
-						this.Array[x][y].SetQuadColor(rA, gA, bA);
+						this.QuadArray[x][y].SetQuadColor(rA, gA, bA);
 					}
 					else {
-						this.Array[x][y].SetQuadColor(rD, gD, bD);
+						this.QuadArray[x][y].SetQuadColor(rD, gD, bD);
 					}
 				}
 				
 				else if (row % 3 == 1) {
 					if (col % 2 == 0) {
-						this.Array[x][y].SetQuadColor(rB, gB, bB);
+						this.QuadArray[x][y].SetQuadColor(rB, gB, bB);
 					}
 					else {
-						this.Array[x][y].SetQuadColor(rE, gE, bE);
+						this.QuadArray[x][y].SetQuadColor(rE, gE, bE);
 					}
 				}
 				
 				else if (row % 3 == 2) {
 					if (col % 2 == 0) {
-						this.Array[x][y].SetQuadColor(rC, gC, bC);
+						this.QuadArray[x][y].SetQuadColor(rC, gC, bC);
 					}
 					else {
-						this.Array[x][y].SetQuadColor(rF, gF, bF);
+						this.QuadArray[x][y].SetQuadColor(rF, gF, bF);
 					}
 				}
 				

@@ -11,7 +11,7 @@ var quadWidth = 40
 function setup() {
 	
 	background(128);
-	createCanvas(750, 750);
+	createCanvas(500, 500);
 	
 	quads = new QuadArray(rows, columns, quadHeight, quadWidth);
 	controller = new QuadArrayController(quads);
@@ -22,7 +22,7 @@ function setup() {
 function draw() {
 	translate(-quadWidth, 0);
 	quads.DrawArray();
-	// controller.SetupInterface();
+	controller.SetupInterface();
 	
 	// quads.SetPatternAB(220, 220, 220, 120, 120, 120);
 	// quads.SetPatternABBC(250, 250, 250, 150, 90, 90, 30, 120, 120);

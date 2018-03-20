@@ -33,11 +33,11 @@ class QuadArrayController {
 		// this.Color3Checkbox ;
 		
 		for (var i = 0; i < this.ColorCheckboxes.length; i++) {
-			if (this.ColorCheckboxes[i].checked == false) {
-				IsColorActive[i] = false;
+			if (this.ColorCheckboxes[i].checked()) {
+				this.IsColorActive[i] = true;
 			}
-			else if (this.ColorCheckboxes[i].checked == true) {
-				IsColorActive[i] = true;
+			else {
+				this.IsColorActive[i] = false;
 			}
 		}
 
