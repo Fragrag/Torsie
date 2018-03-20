@@ -40,7 +40,9 @@ class QuadArrayController {
 	// Callback functions in a class
 	// Read this https://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-inside-a-callback
 	myCheckedEvent() {
-		if (this.checked()) {
+		var self = this;
+		
+		if (self.checked()) {
 			this.IsColor1Active = true;
 		}
 		else {
