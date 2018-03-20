@@ -24,26 +24,19 @@ class QuadArrayController {
 		this.IsColor3Active = false;
 		
 		this.ColorCheckboxes = [this.Color1Checkbox, this.Color2Checkbox, this.Color3Checkbox];
-		this.IsColorActive = [this.IsColor1Active, this.IsColor2Active, this.IsColor2Active,];
+		this.IsColorActive = [this.IsColor1Active, this.IsColor2Active, this.IsColor2Active];
 	}
+
+
+	myCheckedEvent() {
+		if (this.checked()) {
+			this.IsColor1Active = true;
+		}
+		else {
+			this.IsColor1Active = false;
+		}
+	}	
 	
 	SetupInterface() {
-		// this.Color1Checkbox ;
-		// this.Color2Checkbox ;
-		// this.Color3Checkbox ;
-		
-		for (var i = 0; i < this.ColorCheckboxes.length; i++) {
-			if (this.ColorCheckboxes[i].checked()) {
-				this.IsColorActive[i] = true;
-			}
-			else {
-				this.IsColorActive[i] = false;
-			}
-		}
-
+		this.Color1Checkbox.changed(this.myCheckedEvent);
 	}
-	
-	
-	
-	
-}
