@@ -15,23 +15,32 @@ class QuadArrayController {
 	constructor(_QuadArray) {
 		this.QuadArray = _QuadArray;
 		
-		var Color1Checkbox;
-		var Color2Checkbox;
-		var Color3Checkbox;
+		this.Color1Checkbox = createCheckbox('Color 1', false);
+		this.Color2Checkbox = createCheckbox('Color 2', false);
+		this.Color3Checkbox = createCheckbox('Color 3', false);
 		
-		boolean this.IsColor1Active = false;
-		boolean this.IsColor2Active = false;
-		boolean this.IsColor3Active = false;
+		this.IsColor1Active = false;
+		this.IsColor2Active = false;
+		this.IsColor3Active = false;
 		
-
+		this.ColorCheckboxes = [this.Color1Checkbox, this.Color2Checkbox, this.Color3Checkbox];
+		this.IsColorActive = [this.IsColor1Active, this.IsColor2Active, this.IsColor2Active,];
 	}
 	
-	Interface() {
-		Color1Checkbox = createCheckbox('Color 1', false);
-		Color2Checkbox = createCheckbox('Color 2', false);
-		Color3Checkbox = createCheckbox('Color 3', false);
+	SetupInterface() {
+		// this.Color1Checkbox ;
+		// this.Color2Checkbox ;
+		// this.Color3Checkbox ;
 		
-		if (Color1Checkbox.checked)
+		for (var i = 0; i < this.ColorCheckboxes.length; i++) {
+			if (this.ColorCheckboxes[i].checked == false) {
+				IsColorActive[i] = false;
+			}
+			else if (this.ColorCheckboxes[i].checked == true) {
+				IsColorActive[i] = true;
+			}
+		}
+
 	}
 	
 	

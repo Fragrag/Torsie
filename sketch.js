@@ -14,13 +14,15 @@ function setup() {
 	createCanvas(750, 750);
 	
 	quads = new QuadArray(rows, columns, quadHeight, quadWidth);
-	quads.SetupQuadArray();
+	controller = new QuadArrayController(quads);
 	
+	quads.SetupQuadArray();
 }
 
 function draw() {
 	translate(-quadWidth, 0);
 	quads.DrawArray();
+	// controller.SetupInterface();
 	
 	// quads.SetPatternAB(220, 220, 220, 120, 120, 120);
 	// quads.SetPatternABBC(250, 250, 250, 150, 90, 90, 30, 120, 120);

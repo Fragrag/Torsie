@@ -6,6 +6,9 @@ This class will adjust the colours of the QuadElements in accordance to the patt
 
 */
 
+// TODO: Create a list of patterns
+// Each pattern is denoted by a common name, amount of colors and related function
+
 class QuadArray {
 	
 	constructor(_rows, _columns, _quadHeight, _quadWidth) {
@@ -16,6 +19,8 @@ class QuadArray {
 		this.Array = [];
 		this.CoordinateArray = [];
 		this.DiagonalArray = [];
+		
+
 	}
 	
 	/*//////////////////////////////////
