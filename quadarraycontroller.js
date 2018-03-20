@@ -23,11 +23,22 @@ class QuadArrayController {
 		this.IsColor2Active = false;
 		this.IsColor3Active = false;
 		
-		this.ColorCheckboxes = [this.Color1Checkbox, this.Color2Checkbox, this.Color3Checkbox];
-		this.IsColorActive = [this.IsColor1Active, this.IsColor2Active, this.IsColor2Active];
+		this.ColorCheckboxes = [this.Color1Checkbox, 
+								this.Color2Checkbox, 
+								this.Color3Checkbox];
+								
+		this.IsColorActive = [this.IsColor1Active, 
+							  this.IsColor2Active, 
+							  this.IsColor2Active];
+							  
+		
 	}
 
-
+	// SetupInterface() {
+		// this.Color1Checkbox.changed(this.myCheckedEvent);
+	// }
+	// Callback functions in a class
+	// Read this https://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-inside-a-callback
 	myCheckedEvent() {
 		if (this.checked()) {
 			this.IsColor1Active = true;
@@ -35,8 +46,6 @@ class QuadArrayController {
 		else {
 			this.IsColor1Active = false;
 		}
-	}	
-	
-	SetupInterface() {
-		this.Color1Checkbox.changed(this.myCheckedEvent);
 	}
+	
+}

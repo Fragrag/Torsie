@@ -6,7 +6,8 @@ var quads;
 var rows = 18;
 var columns = 24;
 var quadHeight = 40;
-var quadWidth = 40
+var quadWidth = 40;
+var IsColor1Active = false;
 
 function setup() {
 	
@@ -17,17 +18,19 @@ function setup() {
 	controller = new QuadArrayController(quads);
 	
 	quads.SetupQuadArray();
+	
+	controller.Color1Checkbox.changed(controller.myCheckedEvent);
+	
 }
 
 function draw() {
 	translate(-quadWidth, 0);
 	quads.DrawArray();
-	controller.SetupInterface();
 	
 	// quads.SetPatternAB(220, 220, 220, 120, 120, 120);
 	// quads.SetPatternABBC(250, 250, 250, 150, 90, 90, 30, 120, 120);
-	quads.SetPatternCABDEF(	250, 250, 250, 
-							150, 90, 90, 
+	quads.SetPatternCABDEF(	250, 250, 250,
+							150, 90, 90,
 							30, 120, 120,
 							60, 90, 150,
 							20, 20, 150,
@@ -37,3 +40,4 @@ function draw() {
 	// quads.SetPatternAlternatingRows(20, 20, 20, 120, 120, 120);
 	// quads.SetPatternAlternatingColumns(20, 20, 20, 120, 120, 120);
 }
+
