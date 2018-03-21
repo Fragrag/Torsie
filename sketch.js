@@ -20,6 +20,8 @@ var canvasHeight = 720
 var canvasWidth = 720
 
 
+
+
 function setup() {
 	background(128);
 	createCanvas(canvasWidth, canvasHeight);
@@ -27,7 +29,7 @@ function setup() {
 	quads = new QuadArray(rows, columns, quadHeight, quadWidth);
 	quads.SetupQuadArray();
 	
-	controller = new QuadArrayController(quads);
+	QAC = new QuadArrayController(quads);
 	
 	// Create sliders
 	
@@ -48,13 +50,9 @@ function draw() {
 	translate(-quadWidth, 0);
 	quads.DrawArray();
 	
-	// var r1 = color1RSlider.value();
-	// var g1 = color1GSlider.value();
-	// var b1 = color1BSlider.value();
-	
 	// quads.SetPatternAB(220, 220, 220, 120, 120, 120);
 	// quads.SetPatternABBC(250, 250, 250, 150, 90, 90, 30, 120, 120);
-	quads.SetPatternCABDEF(	25, 50, 70,
+	quads.SetPatternCABDEF(	QAC.Color1.r, QAC.Color1.G, QAC.Color1.B,
 							150, 90, 90,
 							30, 120, 120,
 							60, 90, 150,
@@ -68,4 +66,25 @@ function draw() {
 
 
 
+// HexToRgbA converter from https://stackoverflow.com/questions/21646738/convert-hex-to-rgba
+// returns {r: , g: , b: }
 
+function HexToRGB(hex) {
+	var c;
+	if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+		
+		c= hex.substring(1).split('');
+		
+		if(c.length== 3){
+			c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+		}
+		
+		c= '0x'+c.join('');
+	
+		return {r: (c>>16)&255, 
+				g: (c>>8)&255, 
+				b: c&255
+				};
+	}
+	throw new Error('Bad Hex');
+}
