@@ -42,32 +42,32 @@ class QuadArrayController {
 	
 
 	SetArrayPattern(ColorAmount) {
-		if (ColorAmount == 1 || ColorAmount == 0) {
+		if (ColorAmount == 0) {
 			this.QuadArray.SetArrayColor(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b);
 		}
-		else if (ColorAmount == 2) {
+		else if (ColorAmount == 1) {
 			this.QuadArray.SetPatternAB(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b,
 										HexToRGB(this.Color2.value()).r, HexToRGB(this.Color2.value()).g, HexToRGB(this.Color2.value()).b);
 		}
-		else if (ColorAmount == 3) {
+		else if (ColorAmount == 2) {
 			this.QuadArray.SetPatternCAB(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b,
 										 HexToRGB(this.Color2.value()).r, HexToRGB(this.Color2.value()).g, HexToRGB(this.Color2.value()).b,
 										 HexToRGB(this.Color3.value()).r, HexToRGB(this.Color3.value()).g, HexToRGB(this.Color3.value()).b);
 		}
-		else if (ColorAmount == 4) {
+		else if (ColorAmount == 3) {
 			this.QuadArray.SetPatternCABDAB(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b,
 											HexToRGB(this.Color2.value()).r, HexToRGB(this.Color2.value()).g, HexToRGB(this.Color2.value()).b,
 											HexToRGB(this.Color3.value()).r, HexToRGB(this.Color3.value()).g, HexToRGB(this.Color3.value()).b,
 											HexToRGB(this.Color4.value()).r, HexToRGB(this.Color4.value()).g, HexToRGB(this.Color4.value()).b);
 		}
-		else if (ColorAmount == 5) {
+		else if (ColorAmount == 4) {
 			this.QuadArray.SetPatternCABDEB(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b,
 											HexToRGB(this.Color2.value()).r, HexToRGB(this.Color2.value()).g, HexToRGB(this.Color2.value()).b,
 											HexToRGB(this.Color3.value()).r, HexToRGB(this.Color3.value()).g, HexToRGB(this.Color3.value()).b,
 											HexToRGB(this.Color4.value()).r, HexToRGB(this.Color4.value()).g, HexToRGB(this.Color4.value()).b,
 											HexToRGB(this.Color5.value()).r, HexToRGB(this.Color5.value()).g, HexToRGB(this.Color5.value()).b);
 		}
-		else if (ColorAmount == 6) {
+		else if (ColorAmount == 5) {
 			this.QuadArray.SetPatternCABDEF(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b,
 											HexToRGB(this.Color2.value()).r, HexToRGB(this.Color2.value()).g, HexToRGB(this.Color2.value()).b,
 											HexToRGB(this.Color3.value()).r, HexToRGB(this.Color3.value()).g, HexToRGB(this.Color3.value()).b,
