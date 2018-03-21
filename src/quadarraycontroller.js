@@ -5,19 +5,19 @@ It sets up the User Interface with which the user can put in amount of colors
 and the exact shades.
 Depending on the amount of active colors,
 it will tell the QuadArray to draw the appropriate pattern.
+
+With the slider the user gets to choose how many active colors
+At the moment, six colors can be chosen by the user using a slider
+
+Depending on the amount of active colors, we choose a pattern to display
+The colors are chosen by the sliders
 */
 class QuadArrayController {
 	
 	constructor(_QuadArray) {
 		this.QuadArray = _QuadArray;
 		
-		// Constructing Inputs
-		// this.HueInput = createInput(0, 100, 100);
-		// this.HueInput.position(canvasWidth + 20, 50);
-		
-		// this.LightnessInput = createInput(0, 100, 100);
-		// this.LightnessInput.position(canvasWidth + 20, 80)
-		
+		// Setting up sliders and color pickers
 		this.AmountOfColors = createSlider(0, 5, 6);
 		this.AmountOfColors.position(canvasWidth + 20, 20)
 		
@@ -76,6 +76,4 @@ class QuadArrayController {
 											HexToRGB(this.Color6.value()).r, HexToRGB(this.Color6.value()).g, HexToRGB(this.Color6.value()).b);
 		}
 	}
-
-
 }

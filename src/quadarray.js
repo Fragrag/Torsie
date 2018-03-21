@@ -74,7 +74,6 @@ class QuadArray {
 			for (var col = 0; col < this.QuadArray[row].length; col++) {
 				
 				this.QuadArray[row][col].DrawQuad();
-				
 			}
 		}
 	}
@@ -99,7 +98,6 @@ class QuadArray {
 			for (var col = 0; col < this.QuadArray[row].length; col++) {
 				
 				this.QuadArray[row][col].SetQuadColor(r, g, b);
-				
 			}
 		}	
 	}
@@ -135,7 +133,6 @@ class QuadArray {
 		for (var col = 0; col < this.QuadArray[row].length; col++) {
 			
 			this.QuadArray[row][col].SetQuadColor(r, g, b);
-			
 		}
 	}
 	
@@ -144,7 +141,6 @@ class QuadArray {
 		for (var row = 0; row < this.QuadArray.length; row++) {
 			
 				this.QuadArray[row][colummn].SetQuadColor(r, g, b);
-
 		}
 	}
 	
@@ -239,7 +235,6 @@ class QuadArray {
 						this.QuadArray[x][y].SetQuadColor(rF, gF, bF);
 					}
 				}
-				
 			}
 		}
 	}
@@ -283,5 +278,4 @@ class QuadArray {
 										rE, gE, bE, 
 										rF, gF, bF);
 	}
-
 }
