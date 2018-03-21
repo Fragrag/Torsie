@@ -247,41 +247,41 @@ class QuadArray {
 	// Set Array to display PatternADBC
 	SetPatternCAB(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
 		this.SetPatternFromRightBranch(	rA, gA, bA, 
-						rB, gB, bB, 
-						rC, gC, bC,
-						rA, gA, bA, 
-						rB, gB, bB, 
-						rC, gC, bC);
+										rB, gB, bB, 
+										rC, gC, bC,
+										rA, gA, bA, 
+										rB, gB, bB, 
+										rC, gC, bC);
 	}
 	
 	// Set Array to display PatternCABDAB
 	SetPatternCABDAB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD) {
 		this.SetPatternFromRightBranch(	rA, gA, bA, 
-						rB, gB, bB, 
-						rC, gC, bC,
-						rD, gD, bD, 
-						rB, gB, bB, 
-						rC, gC, bC);
+										rB, gB, bB, 
+										rC, gC, bC,
+										rD, gD, bD, 
+										rB, gB, bB, 
+										rC, gC, bC);
 	}
 	
 	// Set Array to display PatternCABDEB
 	SetPatternCABDEB(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE) {
 		this.SetPatternFromRightBranch(	rA, gA, bA, 
-						rB, gB, bB, 
-						rC, gC, bC,
-						rD, gD, bD, 
-						rE, gE, bE, 
-						rC, gC, bC);
+										rB, gB, bB, 
+										rC, gC, bC,
+										rD, gD, bD, 
+										rE, gE, bE, 
+										rC, gC, bC);
 	}
 	
 	// Set Array to display PatternCABDEF
 	SetPatternCABDEF(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE, rF, gF, bF) {
 		this.SetPatternFromRightBranch(	rA, gA, bA, 
-						rB, gB, bB, 
-						rC, gC, bC,
-						rD, gD, bD, 
-						rE, gE, bE, 
-						rF, gF, bF);
+										rB, gB, bB, 
+										rC, gC, bC,
+										rD, gD, bD, 
+										rE, gE, bE, 
+										rF, gF, bF);
 	}
 
 }
