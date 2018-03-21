@@ -5,14 +5,14 @@
 var quads;
 var rows = 18;
 var columns = 24;
-var quadHeight = 40;
-var quadWidth = 40;
+var quadHeight = 50;
+var quadWidth = 50;
 var IsColor1Active = false;
 
 function setup() {
 	
 	background(128);
-	createCanvas(500, 500);
+	createCanvas(750, 750);
 	
 	quads = new QuadArray(rows, columns, quadHeight, quadWidth);
 	controller = new QuadArrayController(quads);
