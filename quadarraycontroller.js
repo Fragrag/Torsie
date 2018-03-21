@@ -21,29 +21,23 @@ class QuadArrayController {
 		this.AmountOfColorsSlider = createSlider(0, 5, 6);
 		this.AmountOfColorsSlider.position(canvasWidth + 20, 20)
 		
-		this.Color1Input = createInput('#ffffff', 'color');
-		this.Color1Input.position(canvasWidth + 20, 50);
-		this.Color1 = HexToRGB(this.Color1Input.value());
+		this.Color1 = createInput('#ffffff', 'color');
+		this.Color1.position(canvasWidth + 20, 50);
 		
-		this.Color2Input = createInput('#ffffff', 'color');
-		this.Color2Input.position(canvasWidth + 20, 80);
-		this.Color2 = HexToRGB(this.Color2Input.value());
+		this.Color2 = createInput('#ffffff', 'color');
+		this.Color2.position(canvasWidth + 20, 80);
 
-		this.Color3Input = createInput('#ffffff', 'color');
-		this.Color3Input.position(canvasWidth + 20, 110);
-		this.Color3 = HexToRGB(this.Color3Input.value());
+		this.Color3 = createInput('#ffffff', 'color');
+		this.Color3.position(canvasWidth + 20, 110);
 		
-		this.Color4Input = createInput('#ffffff', 'color');
-		this.Color4Input.position(canvasWidth + 20, 140);
-		this.Color4 = HexToRGB(this.Color4Input.value());
+		this.Color4 = createInput('#ffffff', 'color');
+		this.Color4.position(canvasWidth + 20, 140);
 		
-		this.Color5Input = createInput('#ffffff', 'color');
-		this.Color5Input.position(canvasWidth + 20, 170);
-		this.Color5 = HexToRGB(this.Color5Input.value());
+		this.Color5 = createInput('#ffffff', 'color');
+		this.Color5.position(canvasWidth + 20, 170);
 		
-		this.Color6Input = createInput('#ffffff', 'color');
-		this.Color6Input.position(canvasWidth + 20, 200);
-		this.Color6 = HexToRGB(this.Color6Input.value());
+		this.Color6 = createInput('#ffffff', 'color');
+		this.Color6.position(canvasWidth + 20, 200);
 	}
 	
 

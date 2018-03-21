@@ -52,12 +52,12 @@ function draw() {
 	
 	// quads.SetPatternAB(220, 220, 220, 120, 120, 120);
 	// quads.SetPatternABBC(250, 250, 250, 150, 90, 90, 30, 120, 120);
-	quads.SetPatternCABDEF(	QAC.Color1.r, QAC.Color1.G, QAC.Color1.B,
-							150, 90, 90,
-							30, 120, 120,
-							60, 90, 150,
-							20, 20, 150,
-							180, 60, 20);
+	quads.SetPatternCABDEF(	HexToRGB(QAC.Color1.value()).r, HexToRGB(QAC.Color1.value()).g, HexToRGB(QAC.Color1.value()).b,
+							HexToRGB(QAC.Color2.value()).r, HexToRGB(QAC.Color2.value()).g, HexToRGB(QAC.Color2.value()).b,
+							HexToRGB(QAC.Color3.value()).r, HexToRGB(QAC.Color3.value()).g, HexToRGB(QAC.Color3.value()).b,
+							HexToRGB(QAC.Color4.value()).r, HexToRGB(QAC.Color4.value()).g, HexToRGB(QAC.Color4.value()).b,
+							HexToRGB(QAC.Color5.value()).r, HexToRGB(QAC.Color5.value()).g, HexToRGB(QAC.Color5.value()).b,
+							HexToRGB(QAC.Color6.value()).r, HexToRGB(QAC.Color6.value()).g, HexToRGB(QAC.Color6.value()).b);
 	// quads.SetPatternADBC(220, 220, 220, 120, 120, 120, 60, 60, 60, 20, 20, 20);
 	// quads.SetSingleColor(128, 64, 64);
 	// quads.SetPatternAlternatingRows(20, 20, 20, 120, 120, 120);
