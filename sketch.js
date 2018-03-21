@@ -19,6 +19,7 @@ var quadWidth = 40;
 var canvasHeight = 720
 var canvasWidth = 720
 
+
 function setup() {
 	background(128);
 	createCanvas(canvasWidth, canvasHeight);
@@ -26,17 +27,19 @@ function setup() {
 	quads = new QuadArray(rows, columns, quadHeight, quadWidth);
 	quads.SetupQuadArray();
 	
+	controller = new QuadArrayController(quads);
+	
 	// Create sliders
 	
-	ActiveColorSlider = createSlider(0, 5, 6);
-	ActiveColorSlider.position(canvasWidth + 20, 20);
+	// ActiveColorSlider = createSlider(0, 5, 6);
+	// ActiveColorSlider.position(canvasWidth + 20, 20);
 	
-	color1RSlider = createSlider(0, 255, 100);
-	color1RSlider.position(canvasWidth + 20, 50);
-	color1GSlider = createSlider(0, 255, 100);
-	color1GSlider.position(canvasWidth + 20, 80);
-	color1BSlider = createSlider(0, 255, 100);
-	color1BSlider.position(canvasWidth + 20, 110);
+	// color1RSlider = createSlider(0, 255, 100);
+	// color1RSlider.position(canvasWidth + 20, 50);
+	// color1GSlider = createSlider(0, 255, 100);
+	// color1GSlider.position(canvasWidth + 20, 80);
+	// color1BSlider = createSlider(0, 255, 100);
+	// color1BSlider.position(canvasWidth + 20, 110);
 	
 	
 }
@@ -45,12 +48,13 @@ function draw() {
 	translate(-quadWidth, 0);
 	quads.DrawArray();
 	
-	var r1 = color1RSlider.value();
-	var g1 = color1GSlider.value();
-	var b1 = color1BSlider.value();
+	// var r1 = color1RSlider.value();
+	// var g1 = color1GSlider.value();
+	// var b1 = color1BSlider.value();
+	
 	// quads.SetPatternAB(220, 220, 220, 120, 120, 120);
 	// quads.SetPatternABBC(250, 250, 250, 150, 90, 90, 30, 120, 120);
-	quads.SetPatternCABDEF(	r1, g1, b1,
+	quads.SetPatternCABDEF(	25, 50, 70,
 							150, 90, 90,
 							30, 120, 120,
 							60, 90, 150,
