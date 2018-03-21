@@ -18,8 +18,8 @@ class QuadArrayController {
 		// this.LightnessInput = createInput(0, 100, 100);
 		// this.LightnessInput.position(canvasWidth + 20, 80)
 		
-		this.AmountOfColorsSlider = createSlider(0, 5, 6);
-		this.AmountOfColorsSlider.position(canvasWidth + 20, 20)
+		this.AmountOfColors = createSlider(0, 5, 6);
+		this.AmountOfColors.position(canvasWidth + 20, 20)
 		
 		this.Color1 = createInput('#ffffff', 'color');
 		this.Color1.position(canvasWidth + 20, 50);
@@ -41,7 +41,41 @@ class QuadArrayController {
 	}
 	
 
-
+	SetArrayPattern(ColorAmount) {
+		if (ColorAmount == 1 || ColorAmount == 0) {
+			this.QuadArray.SetArrayColor(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b);
+		}
+		else if (ColorAmount == 2) {
+			this.QuadArray.SetPatternAB(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b,
+										HexToRGB(this.Color2.value()).r, HexToRGB(this.Color2.value()).g, HexToRGB(this.Color2.value()).b);
+		}
+		else if (ColorAmount == 3) {
+			this.QuadArray.SetPatternCAB(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b,
+										 HexToRGB(this.Color2.value()).r, HexToRGB(this.Color2.value()).g, HexToRGB(this.Color2.value()).b,
+										 HexToRGB(this.Color3.value()).r, HexToRGB(this.Color3.value()).g, HexToRGB(this.Color3.value()).b);
+		}
+		else if (ColorAmount == 4) {
+			this.QuadArray.SetPatternCABDAB(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b,
+											HexToRGB(this.Color2.value()).r, HexToRGB(this.Color2.value()).g, HexToRGB(this.Color2.value()).b,
+											HexToRGB(this.Color3.value()).r, HexToRGB(this.Color3.value()).g, HexToRGB(this.Color3.value()).b,
+											HexToRGB(this.Color4.value()).r, HexToRGB(this.Color4.value()).g, HexToRGB(this.Color4.value()).b);
+		}
+		else if (ColorAmount == 5) {
+			this.QuadArray.SetPatternCABDEB(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b,
+											HexToRGB(this.Color2.value()).r, HexToRGB(this.Color2.value()).g, HexToRGB(this.Color2.value()).b,
+											HexToRGB(this.Color3.value()).r, HexToRGB(this.Color3.value()).g, HexToRGB(this.Color3.value()).b,
+											HexToRGB(this.Color4.value()).r, HexToRGB(this.Color4.value()).g, HexToRGB(this.Color4.value()).b,
+											HexToRGB(this.Color5.value()).r, HexToRGB(this.Color5.value()).g, HexToRGB(this.Color5.value()).b);
+		}
+		else if (ColorAmount == 6) {
+			this.QuadArray.SetPatternCABDEF(HexToRGB(this.Color1.value()).r, HexToRGB(this.Color1.value()).g, HexToRGB(this.Color1.value()).b,
+											HexToRGB(this.Color2.value()).r, HexToRGB(this.Color2.value()).g, HexToRGB(this.Color2.value()).b,
+											HexToRGB(this.Color3.value()).r, HexToRGB(this.Color3.value()).g, HexToRGB(this.Color3.value()).b,
+											HexToRGB(this.Color4.value()).r, HexToRGB(this.Color4.value()).g, HexToRGB(this.Color4.value()).b,
+											HexToRGB(this.Color5.value()).r, HexToRGB(this.Color5.value()).g, HexToRGB(this.Color5.value()).b,
+											HexToRGB(this.Color6.value()).r, HexToRGB(this.Color6.value()).g, HexToRGB(this.Color6.value()).b);
+		}
+	}
 
 
 }
