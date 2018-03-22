@@ -53,7 +53,7 @@ class QuadArrayController {
 		
 		// Get the amount of colors and execute pattern functions depending on amount.
 		if (ColorAmount == 0) {
-			this.QuadArray.SetArrayColor(c1.r, c1.g, c1.b);
+			this.QuadArray.SetQuadArrayColor(c1.r, c1.g, c1.b);
 		}
 		else if (ColorAmount == 1) {
 			this.QuadArray.SetPatternAB(c1.r, c1.g, c1.b,

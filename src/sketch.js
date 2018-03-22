@@ -2,8 +2,8 @@
 
 */
 var quads;
-var rows = 18;
-var columns = 24;
+var rows = 64;
+var columns = 64;
 var quadHeight = 40;
 var quadWidth = 40;
 var canvasHeight = 720
@@ -20,8 +20,8 @@ function setup() {
 }
 
 function draw() {
-	translate(-quadWidth, 0);
-	quads.DrawArray();
+	translate(-quadWidth, 50);
+	quads.DrawQuadArray();
 	
 	QAC.SetArrayPattern(QAC.AmountOfColors.value());
 }
