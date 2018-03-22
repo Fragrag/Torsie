@@ -20,24 +20,27 @@ class QuadArrayController {
 		// Setting up sliders and color pickers
 		this.AmountOfColors = createSlider(0, 5, 6);
 		this.AmountOfColors.position(canvasWidth + 20, 20)
+				
+		this.TorsionType = createSlider(0, 2, 3);
+		this.TorsionType.position(canvasWidth + 20, 50)
 		
 		this.Color1 = createInput('#32f0ff', 'color');
-		this.Color1.position(canvasWidth + 20, 50);
+		this.Color1.position(canvasWidth + 20, 80);
 		
 		this.Color2 = createInput('#f4f53f', 'color');
-		this.Color2.position(canvasWidth + 20, 80);
+		this.Color2.position(canvasWidth + 20, 110);
 
 		this.Color3 = createInput('#f68f7f', 'color');
-		this.Color3.position(canvasWidth + 20, 110);
+		this.Color3.position(canvasWidth + 20, 140);
 		
 		this.Color4 = createInput('#f4f5f6', 'color');
-		this.Color4.position(canvasWidth + 20, 140);
+		this.Color4.position(canvasWidth + 20, 170);
 		
 		this.Color5 = createInput('#f54ff4', 'color');
-		this.Color5.position(canvasWidth + 20, 170);
+		this.Color5.position(canvasWidth + 20, 200);
 		
 		this.Color6 = createInput('#f64f5f', 'color');
-		this.Color6.position(canvasWidth + 20, 200);
+		this.Color6.position(canvasWidth + 20, 230);
 	}
 	
 
@@ -85,5 +88,9 @@ class QuadArrayController {
 											c5.r, c5.g, c5.b,
 											c6.r, c6.g, c6.b);
 		}
+	}
+	
+	SetQuadTorsionType(TorsionType) {
+		this.QuadArray.DrawQuadArray(TorsionType);
 	}
 }

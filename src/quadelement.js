@@ -16,37 +16,43 @@ class QuadElement {
 			g: 256,
 			b: 256
 		};
-		this.TorsionType = _TorsionType;
 	}
 	
-	DrawQuad() {	
+	DrawQuad(TorsionType) {	
 		var originX = this.x * this.width;
 		var originY = this.y * this.height;
 		
 		strokeWeight(.5);
 		fill(this.QuadColor.r, this.QuadColor.g, this.QuadColor.b);
 		
-		if (this.TorsionType == 0) {
+		if (TorsionType == 0) {
 			quad(originX, originY,
 				(originX + this.width), originY,
-				(originX - this.width), (originY + this.height),
-				(originX - (this.width + this.height)), (originY + this.height));
+				(originX), (originY + this.height),
+				(originX - this.width), (originY + this.height));
 		}
-		else if (this.TorsionType == 1) {
+		else if (TorsionType == 1) {
 			quad(originX, originY,
-				(originX+this.width), originY,
+				(originX + this.width), originY,
 				(originX + this.width), (originY + this.height),
 				(originX), (originY + this.height));	
 		}
-		else if (this.TorsionType == 2) {
+		else if (TorsionType == 2) {
 			quad(originX, originY,
-				(originX+this.width), originY,
+				(originX + this.width), originY,
+				(originX + (this.width*2)), (originY + this.height),
+				(originX + this.height), (originY + this.height));	
+		}
+		// If TorsionType is not valid, default to drawing the Z type
+		else { 
+			quad(originX, originY,
+				(originX + this.width), originY,
 				(originX + (this.width + this.height)), (originY + this.height),
 				(originX + this.height), (originY + this.height));	
 		}
 	}
 	
-	SetQuadColor(_r, _g, _b){
+	SetQuadColor(_r, _g, _b) {
 		
 		this.QuadColor.r = _r;
 		this.QuadColor.g = _g;
@@ -56,5 +62,14 @@ class QuadElement {
 	
 	// TODO SetTorsieType()
 	// Basically set the quads to display an S or Z torsion type.
+	SetTorsionType(n) {
+		
+		if (n >= 0 && n <= 2) {
+			this.TorsionType = n;
+		}
+		else {
+			console.log("Not a valid TorsionType");
+		}
+	}
 	
 }

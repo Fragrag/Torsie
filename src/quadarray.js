@@ -69,11 +69,11 @@ class QuadArray {
 	}
 	
 	// Iterate through this.QuadArray and call DrawQuad function from QuadElement
-	DrawQuadArray() {
+	DrawQuadArray(TorsionType) {
 		for (var row = 0; row < this.QuadArray.length; row++) {
 			for (var col = 0; col < this.QuadArray[row].length; col++) {
 				
-				this.QuadArray[row][col].DrawQuad();
+				this.QuadArray[row][col].DrawQuad(TorsionType);
 			}
 		}
 	}
@@ -209,7 +209,6 @@ class QuadArray {
 				var x = this.DiagonalArray[row][col][0];
 				var y = this.DiagonalArray[row][col][1];
 				
-
 				if (row % 3 == 0) {
 					if ((row - col) % 2 == 0) {
 						this.QuadArray[x][y].SetQuadColor(rA, gA, bA);
@@ -217,8 +216,7 @@ class QuadArray {
 					else {
 						this.QuadArray[x][y].SetQuadColor(rD, gD, bD);
 					}
-				}
-				
+				}				
 				else if (row % 3 == 1) {
 					if ((row - col) % 2 == 0) {
 						this.QuadArray[x][y].SetQuadColor(rB, gB, bB);
@@ -227,7 +225,6 @@ class QuadArray {
 						this.QuadArray[x][y].SetQuadColor(rE, gE, bE);
 					}
 				}
-				
 				else if (row % 3 == 2) {
 					if ((row - col) % 2 == 0) {
 						this.QuadArray[x][y].SetQuadColor(rC, gC, bC);
@@ -235,8 +232,7 @@ class QuadArray {
 					else {
 						this.QuadArray[x][y].SetQuadColor(rF, gF, bF);
 					}
-				}
-				
+				}				
 			}
 		}
 	}

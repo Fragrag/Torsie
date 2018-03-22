@@ -21,9 +21,8 @@ function setup() {
 
 function draw() {
 	translate(-quadWidth, 0);
-	quads.DrawQuadArray();
-	
 	QAC.SetArrayPattern(QAC.AmountOfColors.value());
+	QAC.SetQuadTorsionType(QAC.TorsionType.value());
 }
 
 // HexToRgbA converter from https://stackoverflow.com/questions/21646738/convert-hex-to-rgba
