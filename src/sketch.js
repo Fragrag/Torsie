@@ -2,8 +2,8 @@
 
 */
 var quads;
-var rows = 64;
-var columns = 64;
+var rows = 63;
+var columns = 63;
 var quadHeight = 40;
 var quadWidth = 40;
 var canvasHeight = 720;

@@ -70,6 +70,8 @@ class QuadArray {
 	
 	// Iterate through this.QuadArray and call DrawQuad function from QuadElement
 	DrawQuadArray(TorsionType) {
+
+		
 		for (var row = 0; row < this.QuadArray.length; row++) {
 			for (var col = 0; col < this.QuadArray[row].length; col++) {
 				

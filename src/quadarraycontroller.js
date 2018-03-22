@@ -21,7 +21,7 @@ class QuadArrayController {
 		this.AmountOfColors = createSlider(0, 5, 6);
 		this.AmountOfColors.position(canvasWidth + 20, 20)
 				
-		this.TorsionType = createSlider(0, 2, 3);
+		this.TorsionType = createSlider(-100, 100, 100);
 		this.TorsionType.position(canvasWidth + 20, 50)
 		
 		this.Color1 = createInput('#32f0ff', 'color');
@@ -90,7 +90,8 @@ class QuadArrayController {
 		}
 	}
 	
-	SetQuadTorsionType(TorsionType) {
+	SetQuadTorsionType(n) {
+		var TorsionType = map(n, -100, 100, -1, 1);
 		this.QuadArray.DrawQuadArray(TorsionType);
 	}
 }
