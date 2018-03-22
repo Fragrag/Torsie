@@ -42,6 +42,8 @@ class QuadArrayController {
 	
 
 	SetArrayPattern(ColorAmount) {
+		
+		// Getting the return Hex values from the color pickers, converting them into RGB objects and assigning them local variables
 		var c1 = HexToRGB(this.Color1.value());
 		var c2 = HexToRGB(this.Color2.value());
 		var c3 = HexToRGB(this.Color3.value());
@@ -49,6 +51,7 @@ class QuadArrayController {
 		var c5 = HexToRGB(this.Color5.value());
 		var c6 = HexToRGB(this.Color6.value());
 		
+		// Get the amount of colors and execute pattern functions depending on amount.
 		if (ColorAmount == 0) {
 			this.QuadArray.SetArrayColor(c1.r, c1.g, c1.b);
 		}

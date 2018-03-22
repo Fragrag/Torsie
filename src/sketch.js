@@ -29,20 +29,20 @@ function draw() {
 // HexToRgbA converter from https://stackoverflow.com/questions/21646738/convert-hex-to-rgba
 // returns {r: , g: , b: }
 function HexToRGB(hex) {
-	var c;
+	var color;
 	if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
 		
-		c= hex.substring(1).split('');
+		color = hex.substring(1).split('');
 		
-		if(c.length== 3){
-			c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+		if(color.length== 3){
+			color = [color[0], color[0], color[1], color[1], color[2], color[2]];
 		}
 		
-		c= '0x'+c.join('');
+		color = '0x'+color.join('');
 	
-		return {r: (c>>16)&255, 
-				g: (c>>8)&255, 
-				b: c&255
+		return {r: (color>>16) & 255, 
+				g: (color>>8) & 255, 
+				b: color & 255
 				};
 	}
 	throw new Error('Bad Hex');
