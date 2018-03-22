@@ -19,7 +19,7 @@ class QuadArray {
 		this.QuadArray = [];
 		this.CoordinateArray = [];
 		this.DiagonalArray = [];
-		
+		this.ArrayTorsionType = 2;
 	}
 	
 	/*//////////////////////////////////
@@ -37,7 +37,7 @@ class QuadArray {
 		for (var row = 0; row < this.rows; row++) {
 			this.QuadArray[row] = [];
 			for (var col = 0; col < this.columns; col++) {
-				this.QuadArray[row][col] = new QuadElement(this.quadHeight, this.quadWidth, col, row);	
+				this.QuadArray[row][col] = new QuadElement(this.quadHeight, this.quadWidth, col, row, this.ArrayTorsionType);
 			}
 		}	
 	}
@@ -209,63 +209,34 @@ class QuadArray {
 				var x = this.DiagonalArray[row][col][0];
 				var y = this.DiagonalArray[row][col][1];
 				
-				if ((x - y) <= 0) {
-					if (row % 3 == 0) {
-						if (col % 2 == 0) {
-							this.QuadArray[x][y].SetQuadColor(rA, gA, bA);
-						}
-						else {
-							this.QuadArray[x][y].SetQuadColor(rD, gD, bD);
-						}
+
+				if (row % 3 == 0) {
+					if ((row - col) % 2 == 0) {
+						this.QuadArray[x][y].SetQuadColor(rA, gA, bA);
 					}
-					
-					else if (row % 3 == 1) {
-						if (col % 2 == 0) {
-							this.QuadArray[x][y].SetQuadColor(rB, gB, bB);
-						}
-						else {
-							this.QuadArray[x][y].SetQuadColor(rE, gE, bE);
-						}
-					}
-					
-					else if (row % 3 == 2) {
-						if (col % 2 == 0) {
-							this.QuadArray[x][y].SetQuadColor(rC, gC, bC);
-						}
-						else {
-							this.QuadArray[x][y].SetQuadColor(rF, gF, bF);
-						}
+					else {
+						this.QuadArray[x][y].SetQuadColor(rD, gD, bD);
 					}
 				}
 				
-				if ((x - y) > 0) {
-					if (row % 3 == 0) {
-						if (col % 2 == 1) {
-							this.QuadArray[x][y].SetQuadColor(rA, gA, bA);
-						}
-						else {
-							this.QuadArray[x][y].SetQuadColor(rD, gD, bD);
-						}
+				else if (row % 3 == 1) {
+					if ((row - col) % 2 == 0) {
+						this.QuadArray[x][y].SetQuadColor(rB, gB, bB);
 					}
-					
-					else if (row % 3 == 1) {
-						if (col % 2 == 1) {
-							this.QuadArray[x][y].SetQuadColor(rB, gB, bB);
-						}
-						else {
-							this.QuadArray[x][y].SetQuadColor(rE, gE, bE);
-						}
-					}
-					
-					else if (row % 3 == 2) {
-						if (col % 2 == 1) {
-							this.QuadArray[x][y].SetQuadColor(rC, gC, bC);
-						}
-						else {
-							this.QuadArray[x][y].SetQuadColor(rF, gF, bF);
-						}
+					else {
+						this.QuadArray[x][y].SetQuadColor(rE, gE, bE);
 					}
 				}
+				
+				else if (row % 3 == 2) {
+					if ((row - col) % 2 == 0) {
+						this.QuadArray[x][y].SetQuadColor(rC, gC, bC);
+					}
+					else {
+						this.QuadArray[x][y].SetQuadColor(rF, gF, bF);
+					}
+				}
+				
 			}
 		}
 	}
