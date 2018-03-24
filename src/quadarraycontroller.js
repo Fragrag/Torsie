@@ -1,26 +1,24 @@
 /*
 QuadArrayController
-This class will control the QuadArray.
-It sets up the User Interface with which the user can put in amount of colors
-and the exact shades.
-Depending on the amount of active colors,
-it will tell the QuadArray to draw the appropriate pattern.
 
-With the slider the user gets to choose how many active colors
-At the moment, six colors can be chosen by the user using a slider
+This class will control the QuadArray and some aspects of the QuadElement.
+It sets up the User Interface with which the user can put in amount of colors and the exact shades.
+Depending on the amount of active colors, it will tell the QuadArray to draw the appropriate pattern.
 
-Depending on the amount of active colors, we choose a pattern to display
-The colors are chosen by the sliders
+With the slider the user gets to choose how many active colors. QuadArrayController will then parse this
+and tell the QuadArray which pattern is to be drawn depending on the amount of active colors.
+At the moment, six colors can be chosen by the user with a color picker
 */
+
 class QuadArrayController {
 	
 	constructor(_QuadArray) {
 		this.QuadArray = _QuadArray;
-		
+
 		// Setting up sliders and color pickers
 		this.AmountOfColors = createSlider(0, 5, 6);
 		this.AmountOfColors.position(canvasWidth + 20, 20)
-				
+
 		this.TorsionType = createSlider(-100, 100, 100);
 		this.TorsionType.position(canvasWidth + 20, 50)
 		
@@ -42,10 +40,10 @@ class QuadArrayController {
 		this.Color6 = createInput('#f64f5f', 'color');
 		this.Color6.position(canvasWidth + 20, 230);
 	}
-	
+
 
 	SetArrayPattern(ColorAmount) {
-		
+
 		// Getting the return Hex values from the color pickers, converting them into RGB objects and assigning them local variables
 		var c1 = this.GetRGB(this.Color1.value());
 		var c2 = this.GetRGB(this.Color2.value());
@@ -53,7 +51,7 @@ class QuadArrayController {
 		var c4 = this.GetRGB(this.Color4.value());
 		var c5 = this.GetRGB(this.Color5.value());
 		var c6 = this.GetRGB(this.Color6.value());
-		
+
 		// Get the amount of colors and execute pattern functions depending on amount.
 		if (ColorAmount == 0) {
 			this.QuadArray.SetQuadArrayColor(c1.r, c1.g, c1.b);
@@ -89,7 +87,7 @@ class QuadArrayController {
 											c6.r, c6.g, c6.b);
 		}
 	}
-	
+
 	SetQuadTorsionType(n) {
 		var InputTorsionType = map(n, -100, 100, -1, 1);
 		for (var row = 0; row < this.QuadArray.QuadArray.length; row++) {
@@ -99,7 +97,7 @@ class QuadArrayController {
 		}
 		this.QuadArray.DrawQuadArray();
 	}
-	
+
 	// HexToRgbA converter from https://stackoverflow.com/questions/21646738/convert-hex-to-rgba
 	// returns {r: , g: , b: }
 	GetRGB(hex) {

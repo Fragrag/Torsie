@@ -2,8 +2,7 @@
 QuadArray
 
 The actual 'cloth' of Torsie, it consists of a 2D array of QuadElements.
-This class will adjust the colours of the QuadElements in accordance to the patterns.
-
+This class will adjust the colors of the QuadElements in accordance to the patterns.
 */
 
 // TODO: Create a list of patterns

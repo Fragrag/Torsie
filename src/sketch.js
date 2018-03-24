@@ -1,6 +1,10 @@
 /*
+Sketch
 
+This will be the staging area of the different classes. Aside setting up the canvas 
+and several global variables, the sketch will not have any further functionality. 
 */
+
 let quads;
 let rows = 63;
 let columns = 63;

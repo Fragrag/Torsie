@@ -6,7 +6,7 @@ The building block of the QuadArray and the displayed image.
 
 class QuadElement {
 
-	constructor(_width, _height, _x, _y, _TorsionType) {	
+	constructor(_width, _height, _x, _y, _TorsionType = 1, _StrokeThickness = 0.25) {	
 		this.width = _width;
 		this.height = _height;
 		this.x = _x;
@@ -17,6 +17,7 @@ class QuadElement {
 			b: 256
 		};
 		this.TorsionType = _TorsionType
+		this.StrokeThickness = _StrokeThickness
 	}
 	
 	//
@@ -25,7 +26,7 @@ class QuadElement {
 		let originX = this.x * this.width;
 		let originY = this.y * this.height;
 		
-		strokeWeight(.5);
+		strokeWeight(this.StrokeThickness);
 		fill(this.QuadColor.r, this.QuadColor.g, this.QuadColor.b);
 		
 		quad(originX, originY,
