@@ -1,13 +1,13 @@
 /*
 
 */
-var quads;
-var rows = 63;
-var columns = 63;
-var quadHeight = 40;
-var quadWidth = 40;
-var canvasHeight = 720;
-var canvasWidth = 720;
+let quads;
+let rows = 63;
+let columns = 63;
+let quadHeight = 40;
+let quadWidth = 40;
+let canvasHeight = 720;
+let canvasWidth = 720;
 
 function setup() {
 	background(128);

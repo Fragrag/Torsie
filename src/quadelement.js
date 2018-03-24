@@ -22,8 +22,8 @@ class QuadElement {
 	//
 	DrawQuad() {	
 		let TorsionType = this.TorsionType;
-		var originX = this.x * this.width;
-		var originY = this.y * this.height;
+		let originX = this.x * this.width;
+		let originY = this.y * this.height;
 		
 		strokeWeight(.5);
 		fill(this.QuadColor.r, this.QuadColor.g, this.QuadColor.b);

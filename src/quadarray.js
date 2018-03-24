@@ -19,7 +19,6 @@ class QuadArray {
 		this.QuadArray = [];
 		this.CoordinateArray = [];
 		this.DiagonalArray = [];
-		this.ArrayTorsionType = 1;
 	}
 	
 	/*//////////////////////////////////
@@ -34,9 +33,9 @@ class QuadArray {
 	
 	// Populate this.QuadArray with new QuadElements 
 	PopulateQuadArray() {
-		for (var row = 0; row < this.rows; row++) {
+		for (let row = 0; row < this.rows; row++) {
 			this.QuadArray[row] = [];
-			for (var col = 0; col < this.columns; col++) {
+			for (let col = 0; col < this.columns; col++) {
 				
 				this.QuadArray[row][col] = new QuadElement(this.quadHeight, this.quadWidth, col, row, this.ArrayTorsionType);
 			}
@@ -45,9 +44,9 @@ class QuadArray {
 	
 	// Populate this.CoordinateArray with coordinates
 	PopulateCoordinateArray() {
-		for (var row = 0; row < this.rows; row++) {
+		for (let row = 0; row < this.rows; row++) {
 			this.CoordinateArray[row] = [];
-			for (var col = 0; col < this.columns; col++) {
+			for (let col = 0; col < this.columns; col++) {
 				this.CoordinateArray[row][col] = [row, col];	
 			}
 		}	
@@ -57,9 +56,9 @@ class QuadArray {
 	// Based on the following StackOverflow post:
 	// https://stackoverflow.com/questions/2862802/traverse-2d-array-matrix-diagonally
 	PopulateDiagonalArray() {
-		for (var i = 1 - this.rows; i < this.columns; i++) {
-			var group = [];
-			for (var j = 0; j < rows; j++) {
+		for (let i = 1 - this.rows; i < this.columns; i++) {
+			let group = [];
+			for (let j = 0; j < rows; j++) {
 				
 				if ((i + j) >= 0 && (i + j) < columns) {
 					group.push(this.CoordinateArray[j][i + j]);
@@ -70,9 +69,9 @@ class QuadArray {
 	}
 	
 	// Iterate through this.QuadArray and call DrawQuad function from QuadElement
-	DrawQuadArray(TorsionType) {
-		for (var row = 0; row < this.QuadArray.length; row++) {
-			for (var col = 0; col < this.QuadArray[row].length; col++) {
+	DrawQuadArray() {
+		for (let row = 0; row < this.QuadArray.length; row++) {
+			for (let col = 0; col < this.QuadArray[row].length; col++) {
 				
 				this.QuadArray[row][col].DrawQuad();
 			}
@@ -95,8 +94,8 @@ class QuadArray {
 	
 	// Iterate through this.QuadArray and call SetQuadColor function from QuadElement
 	SetQuadArrayColor(r, g, b) {
-		for (var row = 0; row < this.QuadArray.length; row++) {
-			for (var col = 0; col < this.QuadArray[row].length; col++) {
+		for (let row = 0; row < this.QuadArray.length; row++) {
+			for (let col = 0; col < this.QuadArray[row].length; col++) {
 				
 				this.QuadArray[row][col].SetQuadColor(r, g, b);
 			}
@@ -107,7 +106,7 @@ class QuadArray {
 	SetPatternAlternatingRows(rA, gA, bA, rB, gB, bB) {
 		this.SetQuadArrayColor(rA, gA, bA);
 		
-		for (var row = 0; row < this.QuadArray.length; row++) {
+		for (let row = 0; row < this.QuadArray.length; row++) {
 			
 			if (row % 2 == 0) { 
 				this.SetRowColor(row, rB, gB, bB);
@@ -119,8 +118,8 @@ class QuadArray {
 	SetPatternAlternatingColumns(rA, gA, bA, rB, gB, bB) {
 		this.SetQuadArrayColor(rA, gA, bA);
 		
-		for (var row = 0; row < this.QuadArray.length; row++) {
-			for (var col = 0; col < this.QuadArray[row].length; col++) {
+		for (let row = 0; row < this.QuadArray.length; row++) {
+			for (let col = 0; col < this.QuadArray[row].length; col++) {
 				
 				if (col % 2 == 0) {
 					this.SetColumnColor(col, rB, gB, bB);
@@ -131,7 +130,7 @@ class QuadArray {
 	
 	// Set indicated row of Array to color
 	SetRowColor(row, r, g, b) {
-		for (var col = 0; col < this.QuadArray[row].length; col++) {
+		for (let col = 0; col < this.QuadArray[row].length; col++) {
 			
 			this.QuadArray[row][col].SetQuadColor(r, g, b);
 		}
@@ -139,7 +138,7 @@ class QuadArray {
 	
 	// Set indicated column of Array to color
 	SetColumnColor(colummn, r, g, b) {
-		for (var row = 0; row < this.QuadArray.length; row++) {
+		for (let row = 0; row < this.QuadArray.length; row++) {
 			
 				this.QuadArray[row][colummn].SetQuadColor(r, g, b);
 		}
@@ -153,8 +152,8 @@ class QuadArray {
 	SetPatternAB(rA, gA, bA, rB, gB, bB) {
 		this.SetQuadArrayColor(rA, gA, bA);
 		
-		for (var row = 0; row < this.QuadArray.length; row++) {
-			for (var col = 0; col < this.QuadArray[row].length; col++) {
+		for (let row = 0; row < this.QuadArray.length; row++) {
+			for (let col = 0; col < this.QuadArray[row].length; col++) {
 				
 				if ((row - col) % 2 == 0) {
 					this.QuadArray[row][col].SetQuadColor(rB, gB, bB);
@@ -169,9 +168,9 @@ class QuadArray {
 	SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC) {
 		this.SetPatternAB(rA, gA, bA, rB, gB, bB);
 		
-		for (var row = 0; row < this.QuadArray.length; row++) {
+		for (let row = 0; row < this.QuadArray.length; row++) {
 			if (row % 2 != 0) {
-				for (var col = 0; col < this.QuadArray[row].length; col++) {
+				for (let col = 0; col < this.QuadArray[row].length; col++) {
 					
 					if ((row - col) % 2 == 0) {
 						this.QuadArray[row][col].SetQuadColor(rC, gC, bC);
@@ -185,9 +184,9 @@ class QuadArray {
 	SetPatternADBC(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD) {
 		this.SetPatternABBC(rA, gA, bA, rB, gB, bB, rC, gC, bC);
 		
-		for (var row = 0; row < this.QuadArray.length; row++) {
+		for (let row = 0; row < this.QuadArray.length; row++) {
 			if (row % 2 == 0) {
-				for (var col = 0; col < this.QuadArray[row].length; col++) { 
+				for (let col = 0; col < this.QuadArray[row].length; col++) { 
 				
 					if ((row - col) % 2 != 0) {
 						this.QuadArray[row][col].SetQuadColor(rD, gD, bD);
@@ -204,11 +203,11 @@ class QuadArray {
 	// from the right branch of the reference image.
 	SetPatternFromRightBranch(rA, gA, bA, rB, gB, bB, rC, gC, bC, rD, gD, bD, rE, gE, bE, rF, gF, bF) {
 		// Iterate through this.DiagonalArray
-		for (var row = 0; row < this.DiagonalArray.length; row++) {
-			for (var col = 0; col < this.DiagonalArray[row].length; col++) {
+		for (let row = 0; row < this.DiagonalArray.length; row++) {
+			for (let col = 0; col < this.DiagonalArray[row].length; col++) {
 				// The contents of the array in DiagonalArray[row][col] are the coordinates.
-				var x = this.DiagonalArray[row][col][0];
-				var y = this.DiagonalArray[row][col][1];
+				let x = this.DiagonalArray[row][col][0];
+				let y = this.DiagonalArray[row][col][1];
 				
 				if (row % 3 == 0) {
 					if ((row - col) % 2 == 0) {
