@@ -47,12 +47,12 @@ class QuadArrayController {
 	SetArrayPattern(ColorAmount) {
 		
 		// Getting the return Hex values from the color pickers, converting them into RGB objects and assigning them local variables
-		var c1 = HexToRGB(this.Color1.value());
-		var c2 = HexToRGB(this.Color2.value());
-		var c3 = HexToRGB(this.Color3.value());
-		var c4 = HexToRGB(this.Color4.value());
-		var c5 = HexToRGB(this.Color5.value());
-		var c6 = HexToRGB(this.Color6.value());
+		var c1 = this.GetRGB(this.Color1.value());
+		var c2 = this.GetRGB(this.Color2.value());
+		var c3 = this.GetRGB(this.Color3.value());
+		var c4 = this.GetRGB(this.Color4.value());
+		var c5 = this.GetRGB(this.Color5.value());
+		var c6 = this.GetRGB(this.Color6.value());
 		
 		// Get the amount of colors and execute pattern functions depending on amount.
 		if (ColorAmount == 0) {
@@ -91,7 +91,34 @@ class QuadArrayController {
 	}
 	
 	SetQuadTorsionType(n) {
-		var TorsionType = map(n, -100, 100, -1, 1);
-		this.QuadArray.DrawQuadArray(TorsionType);
+		var InputTorsionType = map(n, -100, 100, -1, 1);
+		for (var row = 0; row < this.QuadArray.QuadArray.length; row++) {
+			for (var col = 0; col < this.QuadArray.QuadArray[row].length; col++) {
+				this.QuadArray.QuadArray[row][col].TorsionType = InputTorsionType;
+			}
+		}
+		this.QuadArray.DrawQuadArray();
+	}
+	
+	// HexToRgbA converter from https://stackoverflow.com/questions/21646738/convert-hex-to-rgba
+	// returns {r: , g: , b: }
+	GetRGB(hex) {
+		var color;
+		if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+			
+			color = hex.substring(1).split('');
+			
+			if(color.length == 3){
+				color = [color[0], color[0], color[1], color[1], color[2], color[2]];
+			}
+			
+			color = '0x'+color.join('');
+		
+			return {r: (color>>16) & 255, 
+					g: (color>>8) & 255, 
+					b: color & 255
+					};
+		}
+		throw new Error('Bad Hex');
 	}
 }

@@ -19,7 +19,7 @@ class QuadArray {
 		this.QuadArray = [];
 		this.CoordinateArray = [];
 		this.DiagonalArray = [];
-		this.ArrayTorsionType = 2;
+		this.ArrayTorsionType = 1;
 	}
 	
 	/*//////////////////////////////////
@@ -70,12 +70,11 @@ class QuadArray {
 	}
 	
 	// Iterate through this.QuadArray and call DrawQuad function from QuadElement
-	// 
 	DrawQuadArray(TorsionType) {
 		for (var row = 0; row < this.QuadArray.length; row++) {
 			for (var col = 0; col < this.QuadArray[row].length; col++) {
 				
-				this.QuadArray[row][col].DrawQuad(TorsionType);
+				this.QuadArray[row][col].DrawQuad();
 			}
 		}
 	}

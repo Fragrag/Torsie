@@ -16,10 +16,12 @@ class QuadElement {
 			g: 256,
 			b: 256
 		};
+		this.TorsionType = _TorsionType
 	}
 	
-	DrawQuad(TorsionType) {	
-	
+	//
+	DrawQuad() {	
+		let TorsionType = this.TorsionType;
 		var originX = this.x * this.width;
 		var originY = this.y * this.height;
 		
@@ -32,11 +34,11 @@ class QuadElement {
 			(originX + (this.width * TorsionType)), (originY + this.height));	
 	}
 	
-	SetQuadColor(_r, _g, _b) {
+	SetQuadColor(r, g, b) {
 		
-		this.QuadColor.r = _r;
-		this.QuadColor.g = _g;
-		this.QuadColor.b = _b;
+		this.QuadColor.r = r;
+		this.QuadColor.g = g;
+		this.QuadColor.b = b;
 		
 	}
 }
