@@ -12,9 +12,9 @@ let quadHeight = 40;
 let quadWidth = 40;
 let canvasHeight = 720;
 let canvasWidth = 720;
+let canvasColor = 128
 
 function setup() {
-	background(128);
 	createCanvas(canvasWidth, canvasHeight);
 	
 	quads = new QuadArray(rows, columns, quadHeight, quadWidth);
@@ -24,7 +24,8 @@ function setup() {
 }
 
 function draw() {
-	translate(-quadWidth, 0);
+	translate(-quadWidth*4, 0);
+	background(canvasColor);
 	QAC.SetArrayPattern(QAC.AmountOfColors.value());
 	QAC.SetQuadTorsionType(QAC.TorsionType.value());
 }

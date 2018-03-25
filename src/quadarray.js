@@ -21,7 +21,7 @@ class QuadArray {
 	}
 	
 	/*//////////////////////////////////
-	ARRAY SETUP FUNCTIONS
+	QUAD ARRAY FUNCTIONS
 	//////////////////////////////////*/
 	
 	SetupQuadArray() {
@@ -34,9 +34,10 @@ class QuadArray {
 	PopulateQuadArray() {
 		for (let row = 0; row < this.rows; row++) {
 			this.QuadArray[row] = [];
+			let xOffset = random(-5, 5);
 			for (let col = 0; col < this.columns; col++) {
 				
-				this.QuadArray[row][col] = new QuadElement(this.quadHeight, this.quadWidth, col, row, this.ArrayTorsionType);
+				this.QuadArray[row][col] = new QuadElement(this.quadWidth, this.quadHeight, col, row, this.ArrayTorsionType, 0.5, xOffset, 0);
 			}
 		}	
 	}
@@ -69,6 +70,7 @@ class QuadArray {
 	
 	// Iterate through this.QuadArray and call DrawQuad function from QuadElement
 	DrawQuadArray() {
+		
 		for (let row = 0; row < this.QuadArray.length; row++) {
 			for (let col = 0; col < this.QuadArray[row].length; col++) {
 				
@@ -76,16 +78,43 @@ class QuadArray {
 			}
 		}
 	}
-
+	
 	/*//////////////////////////////////
-	GETTER FUNCTIONS
+	ROW AND COLUMN FUNCTIONS
 	//////////////////////////////////*/
 	
-	GetQuadArray() { return this.QuadArray; }
+	// Set color of indicated row of Array
+	SetRowColor(row, r, g, b) {
+		for (let col = 0; col < this.QuadArray[row].length; col++) {
+			
+			this.QuadArray[row][col].SetQuadColor(r, g, b);
+		}
+	}
+	// Set positional offsets for indicated row of Array
+	SetRowOffset(row, xOffset, yOffset) {
+		for (let col = 0; col < this.QuadArray[row].length; col++) {
+			
+			this.QuadArray[row][col].xOffset = xOffset;
+			this.QuadArray[row][col].yOffset = yOffset;
+		}
+	}
 	
-	GetCoordinateArray() { return this.CoordinateArray; }
+	// Set indicated column of Array to color
+	SetColumnColor(colummn, r, g, b) {
+		for (let row = 0; row < this.QuadArray.length; row++) {
+			
+				this.QuadArray[row][colummn].SetQuadColor(r, g, b);
+		}
+	}
 	
-	GetDiagonalCoordinateArray() { return this.DiagonalArray; }
+	// Set positional offsets for indicated column of Array
+	SetColumnOffset(column, xOffset, yOffset) {
+		for (let row = 0; row < this.QuadArray.length; row++) {
+			
+			this.QuadArray[row][column].xOffset = xOffset;
+			this.QuadArray[row][column].yOffset = yOffset;
+		}
+	}
 	
 	/*//////////////////////////////////
 	GENERAL ARRAY COLOUR FUNCTIONS
@@ -126,27 +155,11 @@ class QuadArray {
 			}
 		}
 	}
-	
-	// Set indicated row of Array to color
-	SetRowColor(row, r, g, b) {
-		for (let col = 0; col < this.QuadArray[row].length; col++) {
-			
-			this.QuadArray[row][col].SetQuadColor(r, g, b);
-		}
-	}
-	
-	// Set indicated column of Array to color
-	SetColumnColor(colummn, r, g, b) {
-		for (let row = 0; row < this.QuadArray.length; row++) {
-			
-				this.QuadArray[row][colummn].SetQuadColor(r, g, b);
-		}
-	}
-	
+
 	/*//////////////////////////////////
 	SET ARRAY PATTERN FUNCTIONS
 	//////////////////////////////////*/
-	
+
 	// Set Array to display PatternAB
 	SetPatternAB(rA, gA, bA, rB, gB, bB) {
 		this.SetQuadArrayColor(rA, gA, bA);
