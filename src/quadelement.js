@@ -38,6 +38,13 @@ class QuadElement {
 			(originX + this.width), originY,
 			(originX + this.width + (this.width * this.torsionType)), (originY + this.height),
 			(originX + (this.width * this.torsionType)), (originY + this.height));	
+
+		// Draw lines on the top and bottom of the quad with a thicker stroke
+		strokeWeight(this.strokeThickness*5);
+		line(originX, originY,
+			 (originX + this.width), originY);
+		line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
+			 (originX + (this.width * this.torsionType)), (originY + this.height))
 	}
 	
 	SetQuadColor(r, g, b) {
