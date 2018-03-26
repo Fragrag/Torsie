@@ -6,43 +6,45 @@ The building block of the QuadArray and the displayed image.
 
 class QuadElement {
 
-	constructor(_width, _height, _x, _y, _TorsionType = 1, _StrokeThickness = 0.25, _xOffset = 0, _yOffset = 0) {	
+	constructor(_width, _height, _x, _y) {
+		// Setting constructor variables to argument inputs
 		this.width = _width;
 		this.height = _height;
 		this.x = _x;
 		this.y = _y;
-		this.QuadColor = {
+		
+		// Setting constructor variables to default variables
+		this.quadColor = {
 			r: 256,
 			g: 256,
 			b: 256
 		};
-		this.TorsionType = _TorsionType;
-		this.StrokeThickness = _StrokeThickness;
-		this.xOffset = _xOffset;
-		this.yOffset = _yOffset;
+		this.torsionType = 1;
+		this.strokeThickness = 0.5;
+		this.xOffset = 0;
+		this.yOffset = 0;
 		
 	}
 	
 	//
 	DrawQuad() {	
-		let TorsionType = this.TorsionType;
 		let originX = (this.x * this.width)+this.xOffset;
 		let originY = (this.y * this.height)+this.yOffset;
 		
-		strokeWeight(this.StrokeThickness);
-		fill(this.QuadColor.r, this.QuadColor.g, this.QuadColor.b);
+		strokeWeight(this.strokeThickness);
+		fill(this.quadColor.r, this.quadColor.g, this.quadColor.b);
 		
 		quad(originX, originY,
 			(originX + this.width), originY,
-			(originX + this.width + (this.width * TorsionType)), (originY + this.height),
-			(originX + (this.width * TorsionType)), (originY + this.height));	
+			(originX + this.width + (this.width * this.torsionType)), (originY + this.height),
+			(originX + (this.width * this.torsionType)), (originY + this.height));	
 	}
 	
 	SetQuadColor(r, g, b) {
 		
-		this.QuadColor.r = r;
-		this.QuadColor.g = g;
-		this.QuadColor.b = b;
+		this.quadColor.r = r;
+		this.quadColor.g = g;
+		this.quadColor.b = b;
 		
 	}
 }

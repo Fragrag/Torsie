@@ -13,6 +13,7 @@ At the moment, six colors can be chosen by the user with a color picker
 class QuadArrayController {
 	
 	constructor(_QuadArray) {
+		// Setting constructor variables to argument inputs
 		this.QuadArray = _QuadArray;
 
 		// Setting up sliders and color pickers
@@ -92,7 +93,7 @@ class QuadArrayController {
 		var InputTorsionType = map(n, -100, 100, -1, 1);
 		for (var row = 0; row < this.QuadArray.QuadArray.length; row++) {
 			for (var col = 0; col < this.QuadArray.QuadArray[row].length; col++) {
-				this.QuadArray.QuadArray[row][col].TorsionType = InputTorsionType;
+				this.QuadArray.QuadArray[row][col].torsionType = InputTorsionType;
 			}
 		}
 		this.QuadArray.DrawQuadArray();

@@ -5,6 +5,7 @@ This will be the staging area of the different classes. Aside setting up the can
 and several global variables, the sketch will not have any further functionality. 
 */
 
+// Setting up global variables
 let quads;
 let rows = 63;
 let columns = 63;
