@@ -32,8 +32,8 @@ let CanvasSetup = function(sketch) {
 	}
 }
 
-let CanvasInstance = new p5(CanvasSetup);
-let CanvasInstance2 = new p5(CanvasSetup);
+// let CanvasInstance = new p5(CanvasSetup);
+// let CanvasInstance2 = new p5(CanvasSetup);
 
 function setup() {
 	createCanvas(canvasWidth, canvasHeight);
@@ -46,3 +46,27 @@ function draw() {
 	translate(-quadWidth*4, 0);
 	background(canvasColor);
 }
+
+function CreateCanvasInstance(CanvasPosX, CanvasPosY, CanvasPattern) {
+	
+	let CanvasSetup = function(sketch) {
+		
+		sketch.setup = function() {
+			sketch.createCanvas(canvasWidth, canvasHeight);
+			
+			sketch.quads = new QuadArray(rows, columns, quadHeight, quadWidth, sketch);
+			sketch.quads.SetupQuadArray();
+		}
+
+		sketch.draw = function() {
+			sketch.translate(-quadWidth*4, 0);
+			sketch.background(canvasColor);
+			sketch.quads.DrawQuadArray();
+			// sketch.quads.SetPatternAB(128, 128, 128, 172, 172, 172);
+		}
+	}
+	
+	return new p5(CanvasSetup);
+}
+
+let CanvasInstance = CreateCanvasInstance(0, 0);
