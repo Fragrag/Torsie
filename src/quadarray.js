@@ -37,7 +37,8 @@ class QuadArray {
 	PopulateQuadArray() {
 		for (let row = 0; row < this.rows; row++) {
 			this.QuadArray[row] = [];
-			let xOffset = random(-5, 5);
+			// let xOffset = random(-5, 5);
+			let xOffset = 0;
 			for (let col = 0; col < this.columns; col++) {
 				
 				this.QuadArray[row][col] = new QuadElement(this.quadWidth, this.quadHeight, col, row, this.ArrayTorsionType, 0.5, xOffset, 0);

@@ -1,7 +1,7 @@
 /*
 Sketch
 
-This will be the staging area of the different classes. Aside setting up the canvas 
+will be the staging area of the different classes. Aside setting up the canvas 
 and several global variables, the sketch will not have any further functionality. 
 */
 
@@ -13,10 +13,26 @@ let quadHeight = 40;
 let quadWidth = 40;
 let canvasHeight = 720;
 let canvasWidth = 720;
-let canvasColor = 128
+let canvasColor = 200;
 
-let qc1 = new QuadCanvas(rows, columns, quadHeight, quadWidth, canvasHeight, canvasWidth, canvasColor);
-let NewCanvas = qc1.CanvasInstance;
+let CanvasSetup = function(sketch) {
+	
+	sketch.setup = function() {
+		sketch.createCanvas(canvasWidth, canvasHeight);
+		
+		quads = new QuadArray(rows, columns, quadHeight, quadWidth);
+		quads.SetupQuadArray();
+	}
+
+	sketch.draw = function() {
+		sketch.translate(-quadWidth*4, 0);
+		sketch.background(canvasColor);
+		quads.DrawQuadArray();
+		quads.SetPatternAB(128, 128, 128, 172, 172, 172);
+	}
+}
+
+let CanvasInstance = new p5(CanvasSetup);
 
 // function setup() {
 	// createCanvas(canvasWidth, canvasHeight);
