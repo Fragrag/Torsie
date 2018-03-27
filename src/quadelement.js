@@ -6,7 +6,7 @@ The building block of the QuadArray and the displayed image.
 
 class QuadElement {
 
-	constructor(_width, _height, _x, _y, _canvasInstance) {
+	constructor(_width, _height, _x, _y, _canvasInstance = null) {
 		// Setting constructor variables to argument inputs
 		this.width = _width;
 		this.height = _height;
@@ -28,24 +28,51 @@ class QuadElement {
 	}
 	
 	//
-	DrawQuad() {	
-		let originX = (this.x * this.width)+this.xOffset;
-		let originY = (this.y * this.height)+this.yOffset;
+	DrawQuad() {
 		
-		this.canvasInstance.strokeWeight(this.strokeThickness);
-		this.canvasInstance.fill(this.quadColor.r, this.quadColor.g, this.quadColor.b);
-		
-		this.canvasInstance.quad(originX, originY,
-			(originX + this.width), originY,
-			(originX + this.width + (this.width * this.torsionType)), (originY + this.height),
-			(originX + (this.width * this.torsionType)), (originY + this.height));	
+		if (this.canvasInstance == null) {
+			let originX = (this.x * this.width)+this.xOffset;
+			let originY = (this.y * this.height)+this.yOffset;
+			
+			strokeWeight(this.strokeThickness);
+			fill(this.quadColor.r, this.quadColor.g, this.quadColor.b);
+			
+			quad(originX, originY,
+				(originX + this.width), originY,
+				(originX + this.width + (this.width * this.torsionType)), (originY + this.height),
+				(originX + (this.width * this.torsionType)), (originY + this.height));	
 
-		// Draw lines on the top and bottom of the quad with a thicker stroke
-		this.canvasInstance.strokeWeight(this.strokeThickness*5);
-		this.canvasInstance.line(originX, originY,
-			 (originX + this.width), originY);
-		this.canvasInstance.line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
-			 (originX + (this.width * this.torsionType)), (originY + this.height))
+			// Draw lines on the top and bottom of the quad with a thicker stroke
+			strokeWeight(this.strokeThickness*5);
+			line(originX, originY,
+				 (originX + this.width), originY);
+			line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
+				 (originX + (this.width * this.torsionType)), (originY + this.height))
+		}
+		
+		else if (this.canvasInstance != null) {
+			let originX = (this.x * this.width)+this.xOffset;
+			let originY = (this.y * this.height)+this.yOffset;
+			
+			this.canvasInstance.strokeWeight(this.strokeThickness);
+			this.canvasInstance.fill(this.quadColor.r, this.quadColor.g, this.quadColor.b);
+			
+			this.canvasInstance.quad(originX, originY,
+				(originX + this.width), originY,
+				(originX + this.width + (this.width * this.torsionType)), (originY + this.height),
+				(originX + (this.width * this.torsionType)), (originY + this.height));	
+
+			// Draw lines on the top and bottom of the quad with a thicker stroke
+			this.canvasInstance.strokeWeight(this.strokeThickness*5);
+			this.canvasInstance.line(originX, originY,
+				 (originX + this.width), originY);
+			this.canvasInstance.line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
+				 (originX + (this.width * this.torsionType)), (originY + this.height))
+		}
+		
+		else {
+			console.log('No canvas object nor instance called!')
+		}
 	}
 	
 	SetQuadColor(r, g, b) {

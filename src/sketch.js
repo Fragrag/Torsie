@@ -11,8 +11,8 @@ let rows = 63;
 let columns = 63;
 let quadHeight = 40;
 let quadWidth = 40;
-let canvasHeight = 720;
-let canvasWidth = 720;
+let canvasHeight = 240;
+let canvasWidth = 240;
 let canvasColor = 200;
 
 let CanvasSetup = function(sketch) {
@@ -28,24 +28,21 @@ let CanvasSetup = function(sketch) {
 		sketch.translate(-quadWidth*4, 0);
 		sketch.background(canvasColor);
 		sketch.quads.DrawQuadArray();
-		sketch.quads.SetPatternAB(128, 128, 128, 172, 172, 172);
+		// sketch.quads.SetPatternAB(128, 128, 128, 172, 172, 172);
 	}
 }
 
 let CanvasInstance = new p5(CanvasSetup);
+let CanvasInstance2 = new p5(CanvasSetup);
 
-// function setup() {
-	// createCanvas(canvasWidth, canvasHeight);
+function setup() {
+	createCanvas(canvasWidth, canvasHeight);
 	
-	// quads = new QuadArray(rows, columns, quadHeight, quadWidth);
-	// quads.SetupQuadArray();
-	
-	// QAC = new QuadArrayController(quads);
-// }
+	quads = new QuadArray(rows, columns, quadHeight, quadWidth, null);
+	quads.SetupQuadArray();
+}
 
-// function draw() {
-	// translate(-quadWidth*4, 0);
-	// background(canvasColor);
-	// QAC.SetArrayPattern(QAC.AmountOfColors.value());
-	// QAC.SetQuadTorsionType(QAC.TorsionType.value());
-// }
+function draw() {
+	translate(-quadWidth*4, 0);
+	background(canvasColor);
+}
