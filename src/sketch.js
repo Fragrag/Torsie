@@ -20,15 +20,15 @@ let CanvasSetup = function(sketch) {
 	sketch.setup = function() {
 		sketch.createCanvas(canvasWidth, canvasHeight);
 		
-		quads = new QuadArray(rows, columns, quadHeight, quadWidth);
-		quads.SetupQuadArray();
+		sketch.quads = new QuadArray(rows, columns, quadHeight, quadWidth);
+		sketch.quads.SetupQuadArray();
 	}
 
 	sketch.draw = function() {
 		sketch.translate(-quadWidth*4, 0);
 		sketch.background(canvasColor);
-		quads.DrawQuadArray();
-		quads.SetPatternAB(128, 128, 128, 172, 172, 172);
+		sketch.quads.DrawQuadArray();
+		sketch.quads.SetPatternAB(128, 128, 128, 172, 172, 172);
 	}
 }
 

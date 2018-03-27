@@ -31,19 +31,19 @@ class QuadElement {
 		let originX = (this.x * this.width)+this.xOffset;
 		let originY = (this.y * this.height)+this.yOffset;
 		
-		strokeWeight(this.strokeThickness);
-		fill(this.quadColor.r, this.quadColor.g, this.quadColor.b);
+		CanvasInstance.strokeWeight(this.strokeThickness);
+		CanvasInstance.fill(this.quadColor.r, this.quadColor.g, this.quadColor.b);
 		
-		quad(originX, originY,
+		CanvasInstance.quad(originX, originY,
 			(originX + this.width), originY,
 			(originX + this.width + (this.width * this.torsionType)), (originY + this.height),
 			(originX + (this.width * this.torsionType)), (originY + this.height));	
 
 		// Draw lines on the top and bottom of the quad with a thicker stroke
-		strokeWeight(this.strokeThickness*5);
-		line(originX, originY,
+		CanvasInstance.strokeWeight(this.strokeThickness*5);
+		CanvasInstance.line(originX, originY,
 			 (originX + this.width), originY);
-		line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
+		CanvasInstance.line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
 			 (originX + (this.width * this.torsionType)), (originY + this.height))
 	}
 	
