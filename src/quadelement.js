@@ -6,12 +6,13 @@ The building block of the QuadArray and the displayed image.
 
 class QuadElement {
 
-	constructor(_width, _height, _x, _y) {
+	constructor(_width, _height, _x, _y, _canvasInstance) {
 		// Setting constructor variables to argument inputs
 		this.width = _width;
 		this.height = _height;
 		this.x = _x;
 		this.y = _y;
+		this.canvasInstance = _canvasInstance;
 		
 		// Setting constructor variables to default variables
 		this.quadColor = {
@@ -31,19 +32,19 @@ class QuadElement {
 		let originX = (this.x * this.width)+this.xOffset;
 		let originY = (this.y * this.height)+this.yOffset;
 		
-		CanvasInstance.strokeWeight(this.strokeThickness);
-		CanvasInstance.fill(this.quadColor.r, this.quadColor.g, this.quadColor.b);
+		this.canvasInstance.strokeWeight(this.strokeThickness);
+		this.canvasInstance.fill(this.quadColor.r, this.quadColor.g, this.quadColor.b);
 		
-		CanvasInstance.quad(originX, originY,
+		this.canvasInstance.quad(originX, originY,
 			(originX + this.width), originY,
 			(originX + this.width + (this.width * this.torsionType)), (originY + this.height),
 			(originX + (this.width * this.torsionType)), (originY + this.height));	
 
 		// Draw lines on the top and bottom of the quad with a thicker stroke
-		CanvasInstance.strokeWeight(this.strokeThickness*5);
-		CanvasInstance.line(originX, originY,
+		this.canvasInstance.strokeWeight(this.strokeThickness*5);
+		this.canvasInstance.line(originX, originY,
 			 (originX + this.width), originY);
-		CanvasInstance.line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
+		this.canvasInstance.line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
 			 (originX + (this.width * this.torsionType)), (originY + this.height))
 	}
 	

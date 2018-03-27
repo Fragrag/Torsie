@@ -20,7 +20,7 @@ let CanvasSetup = function(sketch) {
 	sketch.setup = function() {
 		sketch.createCanvas(canvasWidth, canvasHeight);
 		
-		sketch.quads = new QuadArray(rows, columns, quadHeight, quadWidth);
+		sketch.quads = new QuadArray(rows, columns, quadHeight, quadWidth, sketch);
 		sketch.quads.SetupQuadArray();
 	}
 

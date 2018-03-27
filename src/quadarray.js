@@ -10,12 +10,13 @@ This class will adjust the colors of the QuadElements in accordance to the patte
 
 class QuadArray {
 	
-	constructor(_rows, _columns, _quadHeight, _quadWidth) {
+	constructor(_rows, _columns, _quadHeight, _quadWidth, _canvasInstance) {
 		// Setting constructor variables to argument inputs
 		this.rows = _rows;
 		this.columns = _columns;
 		this.quadHeight = _quadHeight;
 		this.quadWidth = _quadWidth;
+		this.canvasInstance = _canvasInstance;
 		
 		// Initializing arrays
 		this.QuadArray = [];
@@ -41,7 +42,7 @@ class QuadArray {
 			let xOffset = 0;
 			for (let col = 0; col < this.columns; col++) {
 				
-				this.QuadArray[row][col] = new QuadElement(this.quadWidth, this.quadHeight, col, row, this.ArrayTorsionType, 0.5, xOffset, 0);
+				this.QuadArray[row][col] = new QuadElement(this.quadWidth, this.quadHeight, col, row, this.canvasInstance);
 			}
 		}	
 	}
