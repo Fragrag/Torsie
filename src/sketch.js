@@ -15,22 +15,19 @@ let canvasHeight = 720;
 let canvasWidth = 720;
 let canvasColor = 128
 
-let qc1 = new QuadCanvas(rows, columns, quadHeight, quadWidth, canvasHeight, canvasWidth, canvasColor);
-let NewCanvas = qc1.CanvasInstance;
-
 function setup() {
-	// createCanvas(canvasWidth, canvasHeight);
+	createCanvas(canvasWidth, canvasHeight);
 	
-	// quads = new QuadArray(rows, columns, quadHeight, quadWidth);
-	// quads.SetupQuadArray();
+	quads = new QuadArray(rows, columns, quadHeight, quadWidth);
+	quads.SetupQuadArray();
 	
-	// QAC = new QuadArrayController(quads);
+	QAC = new QuadArrayController(quads);
 }
 
 function draw() {
-	// translate(-quadWidth*4, 0);
-	// background(canvasColor);
-	// QAC.SetArrayPattern(QAC.AmountOfColors.value());
-	// QAC.SetQuadTorsionType(QAC.TorsionType.value());
+	translate(-quadWidth*4, 0);
+	background(canvasColor);
+	QAC.SetArrayPattern(QAC.AmountOfColors.value());
+	QAC.SetQuadTorsionType(QAC.TorsionType.value());
 }
 
