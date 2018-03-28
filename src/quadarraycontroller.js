@@ -12,34 +12,35 @@ At the moment, six colors can be chosen by the user with a color picker
 
 class QuadArrayController {
 	
-	constructor(_QuadArray) {
+	constructor(_QuadArray, _canvasWidth) {
 		// Setting constructor variables to argument inputs
 		this.QuadArray = _QuadArray;
 
-		// Setting up sliders and color pickers
-		this.AmountOfColors = createSlider(0, 5, 6);
-		this.AmountOfColors.position(canvasWidth + 20, 20)
+		// Setting up sliders that affect array structure
+		// this.AmountOfColors = createSlider(0, 5, 6);
+		// this.AmountOfColors.position(canvasWidth + 20, 20)
 
-		this.TorsionType = createSlider(-100, 100, 100);
-		this.TorsionType.position(canvasWidth + 20, 50)
+		// this.TorsionType = createSlider(-100, 100, 100);
+		// this.TorsionType.position(canvasWidth + 20, 50);
 		
+		// Setting up color pickers
 		this.Color1 = createInput('#32f0ff', 'color');
-		this.Color1.position(canvasWidth + 20, 80);
+		this.Color1.position(_canvasWidth + 20, 80);
 		
 		this.Color2 = createInput('#f4f53f', 'color');
-		this.Color2.position(canvasWidth + 20, 110);
+		this.Color2.position(_canvasWidth + 20, 110);
 
 		this.Color3 = createInput('#f68f7f', 'color');
-		this.Color3.position(canvasWidth + 20, 140);
+		this.Color3.position(_canvasWidth + 20, 140);
 		
 		this.Color4 = createInput('#f4f5f6', 'color');
-		this.Color4.position(canvasWidth + 20, 170);
+		this.Color4.position(_canvasWidth + 20, 170);
 		
 		this.Color5 = createInput('#f54ff4', 'color');
-		this.Color5.position(canvasWidth + 20, 200);
+		this.Color5.position(_canvasWidth + 20, 200);
 		
 		this.Color6 = createInput('#f64f5f', 'color');
-		this.Color6.position(canvasWidth + 20, 230);
+		this.Color6.position(_canvasWidth + 20, 230);
 	}
 
 

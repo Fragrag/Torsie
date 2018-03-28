@@ -1,3 +1,6 @@
+/*
+Deprecated, this functionality has been moved from a class function to a global function
+*/
 class QuadCanvas {
 	
 	constructor(_rows, _columns, _quadHeight, _quadWidth, _canvasHeight, _canvasWidth, _canvasColor, _canvasInstanceName) {
