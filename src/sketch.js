@@ -15,45 +15,13 @@ let canvasHeight = 240;
 let canvasWidth = 240;
 let canvasColor = 200;
 
-let CanvasSetup = function(sketch) {
-	
-	sketch.setup = function() {
-		sketch.createCanvas(canvasWidth, canvasHeight);
-		
-		sketch.quads = new QuadArray(rows, columns, quadHeight, quadWidth, sketch);
-		sketch.quads.SetupQuadArray();
-	}
-
-	sketch.draw = function() {
-		sketch.translate(-quadWidth*4, 0);
-		sketch.background(canvasColor);
-		sketch.quads.DrawQuadArray();
-		// sketch.quads.SetPatternAB(128, 128, 128, 172, 172, 172);
-	}
-}
-
-// let CanvasInstance = new p5(CanvasSetup);
-// let CanvasInstance2 = new p5(CanvasSetup);
-
-function setup() {
-	createCanvas(canvasWidth, canvasHeight);
-	
-	quads = new QuadArray(rows, columns, quadHeight, quadWidth, null);
-	quads.SetupQuadArray();
-}
-
-function draw() {
-	translate(-quadWidth*4, 0);
-	background(canvasColor);
-}
-
-function CreateCanvasInstance(CanvasPosX, CanvasPosY, CanvasPattern) {
+function NewCanvasInstance(CanvasPosX, CanvasPosY, CanvasPattern) {
 	
 	let CanvasSetup = function(sketch) {
 		
 		sketch.setup = function() {
-			sketch.createCanvas(canvasWidth, canvasHeight);
-			
+			let cnv = sketch.createCanvas(canvasWidth, canvasHeight);
+			cnv.position(CanvasPosX, CanvasPosY);
 			sketch.quads = new QuadArray(rows, columns, quadHeight, quadWidth, sketch);
 			sketch.quads.SetupQuadArray();
 		}
@@ -62,11 +30,26 @@ function CreateCanvasInstance(CanvasPosX, CanvasPosY, CanvasPattern) {
 			sketch.translate(-quadWidth*4, 0);
 			sketch.background(canvasColor);
 			sketch.quads.DrawQuadArray();
-			// sketch.quads.SetPatternAB(128, 128, 128, 172, 172, 172);
+			sketch.quads.SetPatternAB(64, 64, 64, 172, 172, 172);
 		}
 	}
 	
 	return new p5(CanvasSetup);
 }
 
-let CanvasInstance = CreateCanvasInstance(0, 0);
+
+// function setup() {
+	// createCanvas(canvasWidth, canvasHeight);
+	
+	// quads = new QuadArray(rows, columns, quadHeight, quadWidth, null);
+	// quads.SetupQuadArray();
+// }
+
+// function draw() {
+	// translate(-quadWidth*4, 0);
+	// background(canvasColor);
+// }
+
+
+let CanvasInstance = NewCanvasInstance(0, 0);
+let CanvasInstance2 = NewCanvasInstance(300, 300);
