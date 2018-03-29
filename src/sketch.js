@@ -19,6 +19,10 @@ let canvasCentralPosX = ($(window).width()/2) - (canvasWidth/2);
 let canvasLeftPosX = ($(window).width()/2) - (canvasWidth*2);
 let canvasRightPosX = ($(window).width()/2) + (canvasWidth);
 
+let canvasCentralPosY = ($(window).height()/2) - (canvasHeight/2);
+let canvasTopPosY = ($(window).height()/2) - (canvasHeight*1.25);
+let canvasBottomPosY = ($(window).height()/2) + (canvasHeight/4);
+
 // GLOBAL COLOUR SETTINGS
 let QAC;
 let color1;
@@ -71,48 +75,50 @@ function draw() {
 	color4 = QAC.GetRGB(QAC.Color4.value());
 	color5 = QAC.GetRGB(QAC.Color5.value());
 	color6 = QAC.GetRGB(QAC.Color6.value());
+	
+	console.log(frameRate())
 }
 
 
 
 // Central column
-let CanvasInstanceAB = TorsieInstance("PatternAB", canvasCentralPosX, 25, 
+let CanvasInstanceAB = TorsieInstance("PatternAB", 25, canvasCentralPosY, 
 									function(){CanvasInstanceAB.quads.SetPatternAB(color1.r, color1.g, color1.b,
 																				  color2.r, color2.g, color2.b)});
 
 
 // Left column
-let CanvasInstanceABBC = TorsieInstance("PatternABBC", canvasLeftPosX, (canvasHeight+100), 
+let CanvasInstanceABBC = TorsieInstance("PatternABBC", (canvasWidth+100), canvasTopPosY,  
 									function(){CanvasInstanceABBC.quads.SetPatternABBC(color1.r, color1.g, color1.b,
 																					color2.r, color2.g, color2.b,
 																					color3.r, color3.g, color3.b)});
 
-let CanvasInstanceADBC = TorsieInstance("PatternADBC", canvasLeftPosX, (canvasHeight*2+150), 
+let CanvasInstanceADBC = TorsieInstance("PatternADBC", (canvasWidth*2+150), canvasTopPosY,  
 									function(){CanvasInstanceADBC.quads.SetPatternADBC(color1.r, color1.g, color1.b,
 																					color2.r, color2.g, color2.b,
 																					color3.r, color3.g, color3.b,
 																					color4.r, color4.g, color4.b)});
 
 // Right column
-let CanvasInstanceCAB = TorsieInstance("PatternCAB", canvasRightPosX, (canvasHeight+100), 
+let CanvasInstanceCAB = TorsieInstance("PatternCAB", (canvasWidth+100), canvasBottomPosY,  
 									function(){CanvasInstanceCAB.quads.SetPatternCAB(color1.r, color1.g, color1.b,
 																					color2.r, color2.g, color2.b,
 																					color3.r, color3.g, color3.b)});
 
-let CanvasInstanceCABDAB = TorsieInstance("PatternCABDAB", canvasRightPosX, (canvasHeight*2+150), 
+let CanvasInstanceCABDAB = TorsieInstance("PatternCABDAB", (canvasWidth*2+150), canvasBottomPosY,
 									function(){CanvasInstanceCABDAB.quads.SetPatternCAB(color1.r, color1.g, color1.b,
 																						color2.r, color2.g, color2.b,
 																						color3.r, color3.g, color3.b,
 																						color4.r, color4.g, color4.b)});
 
-let CanvasInstanceCABDEB = TorsieInstance("PatternCABDEB", canvasRightPosX, (canvasHeight*3+200), 
+let CanvasInstanceCABDEB = TorsieInstance("PatternCABDEB",(canvasWidth*3+200), canvasBottomPosY, 
 									function(){CanvasInstanceCABDEB.quads.SetPatternCABDEB(color1.r, color1.g, color1.b,
 																						   color2.r, color2.g, color2.b,
 																						   color3.r, color3.g, color3.b,
 																						   color4.r, color4.g, color4.b,
 																						   color5.r, color5.g, color5.b)});
 
-let CanvasInstanceCABDEF = TorsieInstance("PatternCABDEB", canvasRightPosX, (canvasHeight*4+250), 
+let CanvasInstanceCABDEF = TorsieInstance("PatternCABDEB", (canvasWidth*4+250), canvasBottomPosY, 
 									function(){CanvasInstanceCABDEF.quads.SetPatternCABDEF(color1.r, color1.g, color1.b,
 																						   color2.r, color2.g, color2.b,
 																						   color3.r, color3.g, color3.b,
