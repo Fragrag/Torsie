@@ -15,6 +15,8 @@ class QuadArrayController {
 	constructor(_QuadArray, _canvasWidth) {
 		// Setting constructor variables to argument inputs
 		this.QuadArray = _QuadArray;
+		
+		let this.gui = new dat.GUI();
 
 		// Setting up sliders that affect array structure
 		// this.AmountOfColors = createSlider(0, 5, 6);
@@ -24,23 +26,13 @@ class QuadArrayController {
 		// this.TorsionType.position(canvasWidth + 20, 50);
 		
 		// Setting up color pickers
-		this.Color1 = createInput('#32f0ff', 'color');
-		this.Color1.position(_canvasWidth + 20, 80);
-		
-		this.Color2 = createInput('#f4f53f', 'color');
-		this.Color2.position(_canvasWidth + 20, 110);
+		this.Color1 = [ 0, 128, 255 ];
+		this.Color2 = [ 0, 128, 255 ];
+		this.Color3 = [ 0, 128, 255 ];
+		this.Color4 = [ 0, 128, 255 ];
+		this.Color5 = [ 0, 128, 255 ];
+		this.Color6 = [ 0, 128, 255 ];
 
-		this.Color3 = createInput('#f68f7f', 'color');
-		this.Color3.position(_canvasWidth + 20, 140);
-		
-		this.Color4 = createInput('#f4f5f6', 'color');
-		this.Color4.position(_canvasWidth + 20, 170);
-		
-		this.Color5 = createInput('#f54ff4', 'color');
-		this.Color5.position(_canvasWidth + 20, 200);
-		
-		this.Color6 = createInput('#f64f5f', 'color');
-		this.Color6.position(_canvasWidth + 20, 230);
 	}
 
 
