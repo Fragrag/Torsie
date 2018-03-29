@@ -10,12 +10,12 @@ GLOBAL VARIABLES
 //////////////////////////////////*/
 
 // GLOBAL TORSIE CANVAS SETTINGS
-let rows = 63;
-let columns = 63;
+let rows = 21;
+let columns = 21;
 let quadHeight = 15;
 let quadWidth = 15;
-let canvasHeight = 240
-let canvasWidth = 240;
+let canvasHeight = 250
+let canvasWidth = 250;
 let canvasColor = 255;
 
 let canvasCentralPosX = ($(window).width()/2) - (canvasWidth/2);
@@ -81,6 +81,7 @@ function setup() {
 }
 
 function draw() {
+	console.log(frameRate())
 
 }
 
@@ -113,7 +114,7 @@ let CanvasInstanceCAB = TorsieInstance("PatternCAB", (canvasWidth+100), canvasBo
 																					colors.color2[0], colors.color2[1], colors.color2[2])});
 
 let CanvasInstanceCABDAB = TorsieInstance("PatternCABDAB", (canvasWidth*2+150), canvasBottomPosY,
-									function(){CanvasInstanceCABDAB.quads.SetPatternCAB(colors.color0[0], colors.color0[1], colors.color0[2],
+									function(){CanvasInstanceCABDAB.quads.SetPatternCABDAB(colors.color0[0], colors.color0[1], colors.color0[2],
 																						colors.color1[0], colors.color1[1], colors.color1[2],
 																						colors.color2[0], colors.color2[1], colors.color2[2],
 																						colors.color3[0], colors.color3[1], colors.color3[2])});
