@@ -38,50 +38,56 @@ let colors = {
 	color5: [ 87, 50, 76 ],
 };
 
+let gui;
+let c0controller, c1controller, c2controller, c3controller, c4controller, c5controller;
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	background(canvasColor);
+	gui = new dat.GUI();
+	c0controller = gui.addColor(colors, 'color0');
+	c1controller = gui.addColor(colors, 'color1');
+	c2controller = gui.addColor(colors, 'color2');
+	c3controller = gui.addColor(colors, 'color3');
+	c4controller = gui.addColor(colors, 'color4');
+	c5controller = gui.addColor(colors, 'color5');
+}
+
+function draw() {
+
+}
 
 // This function sets up and returns a new Canvas object for a TorsieArray
 function TorsieInstance(InstanceName, CanvasPosX, CanvasPosY, CanvasPattern) {
 	
 	let CanvasSetup = function(sketch) {
 		
-		let color1 = 0;
-		
 		sketch.setup = function() {
 			var cnv = sketch.createCanvas(canvasWidth, canvasHeight);
 			cnv.position(CanvasPosX, CanvasPosY);
 			
+			sketch.translate(-quadWidth*4, 0);
+			
 			sketch.background(canvasColor);
 			sketch.quads = new QuadArray(rows, columns, quadHeight, quadWidth, sketch);
 			sketch.quads.SetupQuadArray();
+			
+			CanvasPattern();
+			sketch.quads.DrawQuadArray();
+			
+			c0controller.onFinishChange(function() {sketch.translate(-quadWidth*4, 0); CanvasPattern(); sketch.quads.DrawQuadArray(); });
+			c1controller.onFinishChange(function() {sketch.translate(-quadWidth*4, 0); CanvasPattern(); sketch.quads.DrawQuadArray(); });
+			c2controller.onFinishChange(function() {sketch.translate(-quadWidth*4, 0); CanvasPattern(); sketch.quads.DrawQuadArray(); });
+			c3controller.onFinishChange(function() {sketch.translate(-quadWidth*4, 0); CanvasPattern(); sketch.quads.DrawQuadArray(); });
+			c4controller.onFinishChange(function() {sketch.translate(-quadWidth*4, 0); CanvasPattern(); sketch.quads.DrawQuadArray(); });
+			c5controller.onFinishChange(function() {sketch.translate(-quadWidth*4, 0); CanvasPattern(); sketch.quads.DrawQuadArray(); });
 		}
 
 		sketch.draw = function() {
-			
-			sketch.translate(-quadWidth*4, 0);
-			sketch.quads.DrawQuadArray();
-			CanvasPattern();
 		}
 	}
 	
 	return new p5(CanvasSetup, InstanceName);
-}
-
-function setup() {
-	createCanvas(windowWidth, windowHeight);
-	background(canvasColor);
-	
-	var gui = new dat.GUI();
-	
-	gui.addColor(colors, 'color0');
-	gui.addColor(colors, 'color1');
-	gui.addColor(colors, 'color2');
-	gui.addColor(colors, 'color3');
-	gui.addColor(colors, 'color4');
-	gui.addColor(colors, 'color5');
-}
-
-function draw() {
-
 }
 
 /*//////////////////////////////////
@@ -125,7 +131,7 @@ let CanvasInstanceCABDEB = TorsieInstance("PatternCABDEB",(canvasWidth*3+200), c
 																						   colors.color3[0], colors.color3[1], colors.color3[2],
 																						   colors.color4[0], colors.color4[1], colors.color4[2])});
 
-let CanvasInstanceCABDEF = TorsieInstance("PatternCABDEB", (canvasWidth*4+250), canvasBottomPosY, 
+let CanvasInstanceCABDEF = TorsieInstance("PatternCABDEF", (canvasWidth*4+250), canvasBottomPosY, 
 									function(){CanvasInstanceCABDEF.quads.SetPatternCABDEF(colors.color0[0], colors.color0[1], colors.color0[2],
 																						   colors.color1[0], colors.color1[1], colors.color1[2],
 																						   colors.color2[0], colors.color2[1], colors.color2[2],

@@ -16,7 +16,7 @@ class QuadArrayController {
 		// Setting constructor variables to argument inputs
 		this.QuadArray = _QuadArray;
 		
-		let this.gui = new dat.GUI();
+		// let this.gui = new dat.GUI();
 
 		// Setting up sliders that affect array structure
 		// this.AmountOfColors = createSlider(0, 5, 6);
