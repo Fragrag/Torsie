@@ -29,18 +29,20 @@ function TorsieInstance(CanvasPosX, CanvasPosY, CanvasPattern) {
 	
 	let CanvasSetup = function(sketch) {
 		
+		let color1 = 0;
+		
 		sketch.setup = function() {
 			let cnv = sketch.createCanvas(canvasWidth, canvasHeight);
 			cnv.position(CanvasPosX, CanvasPosY);
+			sketch.background(canvasColor);
 			sketch.quads = new QuadArray(rows, columns, quadHeight, quadWidth, sketch);
 			sketch.quads.SetupQuadArray();
 		}
 
 		sketch.draw = function() {
 			sketch.translate(-quadWidth*4, 0);
-			sketch.background(canvasColor);
 			sketch.quads.DrawQuadArray();
-			sketch.quads.SetPatternABBC(64, 64, 64, 172, 172, 172, 130, 130, 130);
+			CanvasPattern();
 		}
 	}
 	
@@ -49,12 +51,13 @@ function TorsieInstance(CanvasPosX, CanvasPosY, CanvasPattern) {
 
 function setup() {
 	createCanvas(600, 600);
+	background(canvasColor);
 	QAC = new QuadArrayController(null, 600);
+
 }
 
 function draw() {
 	translate(-quadWidth*4, 0);
-	background(canvasColor);
 	
 	color1 = QAC.GetRGB(QAC.Color1.value());
 	color2 = QAC.GetRGB(QAC.Color2.value());
@@ -64,5 +67,5 @@ function draw() {
 	color6 = QAC.GetRGB(QAC.Color6.value());
 }
 
-let CanvasInstance1 = TorsieInstance(50, 50);
-let CanvasInstance2 = TorsieInstance(400, 50);
+let CanvasInstance1 = TorsieInstance(50, 50, function(){CanvasInstance1.quads.SetPatternAB(color1.r, color1.g, color1.b,
+																						   color2.r, color2.g, color2.b)});
