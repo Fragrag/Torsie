@@ -38,11 +38,10 @@ class QuadArray {
 	PopulateQuadArray() {
 		for (let row = 0; row < this.rows; row++) {
 			this.QuadArray[row] = [];
-			// let xOffset = random(-5, 5);
-			let xOffset = 0;
+			let xOffset = random(-rowXOffset, rowXOffset);
 			for (let col = 0; col < this.columns; col++) {
 				
-				this.QuadArray[row][col] = new QuadElement(this.quadWidth, this.quadHeight, col, row, this.canvasInstance);
+				this.QuadArray[row][col] = new QuadElement(this.quadWidth, this.quadHeight, col, row, xOffset, 0, this.canvasInstance);
 			}
 		}	
 	}
@@ -95,6 +94,7 @@ class QuadArray {
 			this.QuadArray[row][col].SetQuadColor(r, g, b);
 		}
 	}
+	
 	// Set positional offsets for indicated row of Array
 	SetRowOffset(row, xOffset, yOffset) {
 		for (let col = 0; col < this.QuadArray[row].length; col++) {

@@ -6,7 +6,7 @@ The building block of the QuadArray and the displayed image.
 
 class QuadElement {
 
-	constructor(_width, _height, _x, _y, _canvasInstance = null) {
+	constructor(_width, _height, _x, _y, _xOffset = 0, _yOffset = 0, _canvasInstance = null) {
 		// Setting constructor variables to argument inputs
 		this.width = _width;
 		this.height = _height;
@@ -22,8 +22,8 @@ class QuadElement {
 		};
 		this.torsionType = 1;
 		this.strokeThickness = 0.5;
-		this.xOffset = 0;
-		this.yOffset = 0;
+		this.xOffset = _xOffset;
+		this.yOffset = _yOffset;
 		
 	}
 	
@@ -43,7 +43,7 @@ class QuadElement {
 				(originX + (this.width * this.torsionType)), (originY + this.height));	
 
 			// Draw lines on the top and bottom of the quad with a thicker stroke
-			strokeWeight(this.strokeThickness*5);
+			strokeWeight(this.strokeThickness*3);
 			line(originX, originY,
 				 (originX + this.width), originY);
 			line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
@@ -63,7 +63,7 @@ class QuadElement {
 				(originX + (this.width * this.torsionType)), (originY + this.height));	
 
 			// Draw lines on the top and bottom of the quad with a thicker stroke
-			this.canvasInstance.strokeWeight(this.strokeThickness*5);
+			this.canvasInstance.strokeWeight(this.strokeThickness*3);
 			this.canvasInstance.line(originX, originY,
 				 (originX + this.width), originY);
 			this.canvasInstance.line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
