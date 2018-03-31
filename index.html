@@ -8,12 +8,27 @@
 	<script src="src/quadarray.js"></script>
     <script src="src/quadelement.js"></script>
 	<script src="src/quadarraycontroller.js"></script>
+	
+	<style>
+		body {
+			background-color: #909090;
+		}
+		#gui {
+			position: relative;
+			top: 100px;
+			left: -20%;
+		}
+	</style>
   </head>
   <body>
 	<div id="sketchWrapper">
-        <div id="PatternAB"> </div>
-		<div id="PatternABBC"> </div>
-		<div id="PatternCAB"> </div>
+        <div id="PatternAB" class="SketchInstance"> </div>
+		<div id="PatternABBC" class="SketchInstance"> </div>
+		<div id="PatternADBC" class="SketchInstance"> </div>
+		<div id="PatternCAB" class="SketchInstance"> </div>
+		<div id="PatternCABDAB" class="SketchInstance"> </div>
+		<div id="PatternCABDEB" class="SketchInstance"> </div>
+		<div id="PatternCABDEF" class="SketchInstance"> </div>
 	</div>
   </body>
 </html>
