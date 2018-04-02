@@ -9,35 +9,38 @@ and several global variables, the sketch will not have any further functionality
 GLOBAL VARIABLES
 //////////////////////////////////*/
 
-// GLOBAL TORSIE CANVAS SETTINGS
+// GLOBAL QUADARRAY SETTINGS
 let rows = 15;
 let columns = 15;
 let quadHeight = 25;
 let quadWidth = 25;
+
+// GLOBAL TORSIE CANVAS SETTINGS
 let canvasHeight = 250;
 let canvasWidth = 250;
 let canvasColor = 255;
+
+let rowXOffset = 5;
+let sketchXOffset = 50;
+let sketchYOffset = -25;
 
 let canvasCentralPosX = ($(window).width()/2) - (canvasWidth/2);
 let canvasLeftPosX = ($(window).width()/2) - (canvasWidth*2);
 let canvasRightPosX = ($(window).width()/2) + (canvasWidth);
 
-let canvasCentralPosY = ($(window).height()/2) - (canvasHeight/2);
-let canvasTopPosY = ($(window).height()/2) - (canvasHeight*1.25);
-let canvasBottomPosY = ($(window).height()/2) + (canvasHeight/4);
-
-let rowXOffset = 5;
-let sketchXOffset = 50;
+let canvasCentralPosY = ($(window).height()/2) - (canvasHeight/2) + sketchYOffset;
+let canvasTopPosY = ($(window).height()/2) - (canvasHeight*1.25) + sketchYOffset;
+let canvasBottomPosY = ($(window).height()/2) + (canvasHeight/4) + sketchYOffset;
 
 // GLOBAL COLOUR SETTINGS
 let QAC;
 let colors = {
-	color0: [ 255, 255, 255 ],
-	color1: [ 0, 255, 0 ],
-	color2: [ 0, 0, 255 ],
-	color3: [ 255, 255, 255 ],
-	color4: [ 255, 255, 255 ],
-	color5: [ 255, 255, 255 ],
+	color0: [ 247, 190, 78 ],
+	color1: [ 214, 149, 68 ],
+	color2: [ 237, 148, 87 ],
+	color3: [ 214, 106, 68 ],
+	color4: [ 247, 98, 78 ],
+	color5: [ 247, 97, 134 ],
 };
 
 
@@ -64,13 +67,14 @@ function TorsieInstance(InstanceName, CanvasPosX, CanvasPosY, CanvasPattern, Ske
 			sketch.quads.DrawQuadArray();
 			CanvasPattern();
 		}
+		
 	}
 	
 	return new p5(CanvasSetup, InstanceName);
 }
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	// createCanvas(windowWidth, windowHeight);
 	// background(canvasColor);
 	
 	var gui = new dat.GUI({ autoplace: false });
@@ -92,6 +96,11 @@ function draw() {
 function SketchXPos(col) {
 	let XPos = sketchXOffset + (canvasWidth*col) + (sketchXOffset*col);
 	return XPos;
+}
+
+function SketchYPos(row) {
+	let YPos = sketchYOffset + (canvasWidth*row) + (sketchYOffset*row);
+	return YPos;
 }
 
 /*//////////////////////////////////

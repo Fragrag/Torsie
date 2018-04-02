@@ -1,0 +1,9 @@
+body {
+	background-color: #EDD8A8;
+}
+
+#gui {
+	position: absolute;
+	top: 65px;
+	left: 60%;
+}
