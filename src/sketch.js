@@ -10,18 +10,18 @@ GLOBAL VARIABLES
 //////////////////////////////////*/
 
 // GLOBAL QUADARRAY SETTINGS
-let rows = 15;
-let columns = 15;
-let quadHeight = 25;
-let quadWidth = 25;
+let rows = 13;
+let columns = 13;
+let quadHeight = 30;
+let quadWidth = 30;
 
 // GLOBAL TORSIE CANVAS SETTINGS
-let canvasHeight = 250;
-let canvasWidth = 250;
+let canvasHeight = 240;
+let canvasWidth = 240;
 let canvasColor = 255;
 
 let rowXOffset = 5;
-let sketchXOffset = 50;
+let sketchXOffset = 60;
 let sketchYOffset = 50;
 
 // let canvasCentralPosX = ($(window).width()/2) - (canvasWidth/2);
@@ -90,7 +90,7 @@ function setup() {
 	gui.addColor(colors, 'color5');
 	
 	// Draw lines between sketch instances
-	strokeWeight(10);
+	strokeWeight(3.33);
 	color(255,255,255);
 	line(sketchCentralPos(0,1)[0], sketchCentralPos(0,1)[1],
 		sketchCentralPos(0,0)[0], sketchCentralPos(0,0)[1]);
