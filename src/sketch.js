@@ -76,7 +76,7 @@ function TorsieInstance(InstanceName, CanvasPosX, CanvasPosY, CanvasPattern, Ske
 
 // Set up global sketch instance
 function setup() {
-	// createCanvas(windowWidth, windowHeight);
+	createCanvas(windowWidth, windowHeight);
 	// background(canvasColor);
 	
 	var gui = new dat.GUI({ autoplace: false });
@@ -89,13 +89,34 @@ function setup() {
 	gui.addColor(colors, 'color4');
 	gui.addColor(colors, 'color5');
 	
-	// Drawing lines between sketch instances
-	
-	// line(sketchCentralPos()
+	// Draw lines between sketch instances
+	strokeWeight(10);
+	color(255,255,255);
+	line(sketchCentralPos(0,1)[0], sketchCentralPos(0,1)[1],
+		sketchCentralPos(0,0)[0], sketchCentralPos(0,0)[1]);
+	line(sketchCentralPos(0,0)[0], sketchCentralPos(0,0)[1],
+		sketchCentralPos(1,0)[0], sketchCentralPos(1,0)[1]);
+		
+	line(sketchCentralPos(1,0)[0], sketchCentralPos(1,0)[1],
+		sketchCentralPos(2,0)[0], sketchCentralPos(2,0)[1]);
+		
+	line(sketchCentralPos(0,1)[0], sketchCentralPos(0,1)[1],
+		sketchCentralPos(0,2)[0], sketchCentralPos(0,2)[1]);
+	line(sketchCentralPos(0,2)[0], sketchCentralPos(0,2)[1],
+		sketchCentralPos(1,2)[0], sketchCentralPos(1,2)[1]);
+		
+	line(sketchCentralPos(1,2)[0], sketchCentralPos(1,2)[1],
+		sketchCentralPos(2,2)[0], sketchCentralPos(2,2)[1]);
+
+	line(sketchCentralPos(2,2)[0], sketchCentralPos(2,2)[1],
+		sketchCentralPos(3,2)[0], sketchCentralPos(3,2)[1]);
+		
+	line(sketchCentralPos(3,2)[0], sketchCentralPos(3,2)[1],
+		sketchCentralPos(4,2)[0], sketchCentralPos(4,2)[1]);
 }
 
 function draw() {
-	// console.log(frameRate())
+	console.log(frameRate())
 
 }
 
