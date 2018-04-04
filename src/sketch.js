@@ -22,15 +22,15 @@ let canvasColor = 255;
 
 let rowXOffset = 5;
 let sketchXOffset = 50;
-let sketchYOffset = -25;
+let sketchYOffset = 50;
 
-let canvasCentralPosX = ($(window).width()/2) - (canvasWidth/2);
-let canvasLeftPosX = ($(window).width()/2) - (canvasWidth*2);
-let canvasRightPosX = ($(window).width()/2) + (canvasWidth);
+// let canvasCentralPosX = ($(window).width()/2) - (canvasWidth/2);
+// let canvasLeftPosX = ($(window).width()/2) - (canvasWidth*2);
+// let canvasRightPosX = ($(window).width()/2) + (canvasWidth);
 
-let canvasCentralPosY = ($(window).height()/2) - (canvasHeight/2) + sketchYOffset;
-let canvasTopPosY = ($(window).height()/2) - (canvasHeight*1.25) + sketchYOffset;
-let canvasBottomPosY = ($(window).height()/2) + (canvasHeight/4) + sketchYOffset;
+// let canvasCentralPosY = ($(window).height()/2) - (canvasHeight/2) + sketchYOffset;
+// let canvasTopPosY = ($(window).height()/2) - (canvasHeight*1.25) + sketchYOffset;
+// let canvasBottomPosY = ($(window).height()/2) + (canvasHeight/4) + sketchYOffset;
 
 // GLOBAL COLOUR SETTINGS
 let QAC;
@@ -73,6 +73,8 @@ function TorsieInstance(InstanceName, CanvasPosX, CanvasPosY, CanvasPattern, Ske
 	return new p5(CanvasSetup, InstanceName);
 }
 
+
+// Set up global sketch instance
 function setup() {
 	// createCanvas(windowWidth, windowHeight);
 	// background(canvasColor);
@@ -86,6 +88,10 @@ function setup() {
 	gui.addColor(colors, 'color3');
 	gui.addColor(colors, 'color4');
 	gui.addColor(colors, 'color5');
+	
+	// Drawing lines between sketch instances
+	
+	// line(sketchCentralPos()
 }
 
 function draw() {
@@ -93,14 +99,25 @@ function draw() {
 
 }
 
+// Canvas instance parameters
 function SketchXPos(col) {
 	let XPos = sketchXOffset + (canvasWidth*col) + (sketchXOffset*col);
 	return XPos;
 }
 
 function SketchYPos(row) {
-	let YPos = sketchYOffset + (canvasWidth*row) + (sketchYOffset*row);
+	let YPos = sketchYOffset + ((canvasHeight/1.5)*row) + (sketchYOffset*row);
 	return YPos;
+}
+
+function sketchCentralPos(col, row) {
+	let XPos;
+	let YPos;
+	
+	XPos = SketchXPos(col) + (canvasWidth/2);
+	YPos = SketchYPos(row) + (canvasHeight/2);
+	
+	return [XPos, YPos];
 }
 
 /*//////////////////////////////////
@@ -108,43 +125,43 @@ SPAWNING INSTANCES
 //////////////////////////////////*/
 
 // Central column
-let CanvasInstanceAB = TorsieInstance("PatternAB", SketchXPos(0), canvasCentralPosY, 
+let CanvasInstanceAB = TorsieInstance("PatternAB", SketchXPos(0), SketchYPos(1), 
 									function(){CanvasInstanceAB.quads.SetPatternAB(colors.color0[0], colors.color0[1], colors.color0[2],
 																				   colors.color1[0], colors.color1[1], colors.color1[2])});
 
 
 // Left column
-let CanvasInstanceABBC = TorsieInstance("PatternABBC", SketchXPos(1), canvasTopPosY,  
+let CanvasInstanceABBC = TorsieInstance("PatternABBC", SketchXPos(1), SketchYPos(0),  
 									function(){CanvasInstanceABBC.quads.SetPatternABBC(colors.color0[0], colors.color0[1], colors.color0[2],
 																					   colors.color1[0], colors.color1[1], colors.color1[2],
 																					   colors.color2[0], colors.color2[1], colors.color2[2])});
 
-let CanvasInstanceADBC = TorsieInstance("PatternADBC", SketchXPos(2), canvasTopPosY,  
+let CanvasInstanceADBC = TorsieInstance("PatternADBC", SketchXPos(2), SketchYPos(0),  
 									function(){CanvasInstanceADBC.quads.SetPatternADBC(colors.color0[0], colors.color0[1], colors.color0[2],
 																					 colors.color1[0], colors.color1[1], colors.color1[2],
 																					 colors.color2[0], colors.color2[1], colors.color2[2],
 																					 colors.color3[0], colors.color3[1], colors.color3[2])});
 
 // Right column
-let CanvasInstanceCAB = TorsieInstance("PatternCAB", SketchXPos(1), canvasBottomPosY,  
+let CanvasInstanceCAB = TorsieInstance("PatternCAB", SketchXPos(1), SketchYPos(2),  
 									function(){CanvasInstanceCAB.quads.SetPatternCAB(colors.color0[0], colors.color0[1], colors.color0[2],
 																					 colors.color1[0], colors.color1[1], colors.color1[2],
 																					 colors.color2[0], colors.color2[1], colors.color2[2])});
 
-let CanvasInstanceCABDAB = TorsieInstance("PatternCABDAB", SketchXPos(2), canvasBottomPosY,
+let CanvasInstanceCABDAB = TorsieInstance("PatternCABDAB", SketchXPos(2), SketchYPos(2),
 									function(){CanvasInstanceCABDAB.quads.SetPatternCABDAB(colors.color0[0], colors.color0[1], colors.color0[2],
 																						   colors.color1[0], colors.color1[1], colors.color1[2],
 																						   colors.color2[0], colors.color2[1], colors.color2[2],
 																						   colors.color3[0], colors.color3[1], colors.color3[2])});
 
-let CanvasInstanceCABDEB = TorsieInstance("PatternCABDEB",SketchXPos(3), canvasBottomPosY, 
+let CanvasInstanceCABDEB = TorsieInstance("PatternCABDEB",SketchXPos(3), SketchYPos(2), 
 									function(){CanvasInstanceCABDEB.quads.SetPatternCABDEB(colors.color0[0], colors.color0[1], colors.color0[2],
 																						   colors.color1[0], colors.color1[1], colors.color1[2],
 																						   colors.color2[0], colors.color2[1], colors.color2[2],
 																						   colors.color3[0], colors.color3[1], colors.color3[2],
 																						   colors.color4[0], colors.color4[1], colors.color4[2])});
 
-let CanvasInstanceCABDEF = TorsieInstance("PatternCABDEB", SketchXPos(4), canvasBottomPosY, 
+let CanvasInstanceCABDEF = TorsieInstance("PatternCABDEB", SketchXPos(4), SketchYPos(2), 
 									function(){CanvasInstanceCABDEF.quads.SetPatternCABDEF(colors.color0[0], colors.color0[1], colors.color0[2],
 																						   colors.color1[0], colors.color1[1], colors.color1[2],
 																						   colors.color2[0], colors.color2[1], colors.color2[2],
