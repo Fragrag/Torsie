@@ -22,7 +22,7 @@ let canvasColor = 255;
 
 let rowXOffset = 5;
 let sketchXOffset = 60;
-let sketchYOffset = 50;
+let sketchYOffset = 66;
 
 // let canvasCentralPosX = ($(window).width()/2) - (canvasWidth/2);
 // let canvasLeftPosX = ($(window).width()/2) - (canvasWidth*2);
@@ -116,10 +116,13 @@ function setup() {
 }
 
 function draw() {
-	console.log(frameRate())
+	// console.log(frameRate())
 
 }
 
+/*//////////////////////////////////
+SKETCH INSTANCES
+//////////////////////////////////*/
 // Canvas instance parameters
 function SketchXPos(col) {
 	let XPos = sketchXOffset + (canvasWidth*col) + (sketchXOffset*col);
@@ -141,10 +144,7 @@ function sketchCentralPos(col, row) {
 	return [XPos, YPos];
 }
 
-/*//////////////////////////////////
-SPAWNING INSTANCES
-//////////////////////////////////*/
-
+// Spawning instances
 // Central column
 let CanvasInstanceAB = TorsieInstance("PatternAB", SketchXPos(0), SketchYPos(1), 
 									function(){CanvasInstanceAB.quads.SetPatternAB(colors.color0[0], colors.color0[1], colors.color0[2],
