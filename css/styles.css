@@ -8,10 +8,10 @@ html, body {
   /* overflow: hidden; */
 }
 
-.header {
+.footer {
     position: fixed;
     left: 0;
-    top: 0;
+    bottom: 0;
     width: 100%;
 	background-color: rgba(128, 128, 128, 0.0);
     color: white;
@@ -19,8 +19,8 @@ html, body {
 }
 
 .button {
-    background-color: rgba(128, 128, 128, 1);
-    border: 2px solid rgba(000, 000, 000, 1);
+    background-color: rgba(128, 128, 128, 0);
+    border: 0px solid rgba(000, 000, 000, 1);
     color: black;
     padding: 4px 12px;
     text-align: center;
@@ -33,6 +33,11 @@ html, body {
 	position: absolute;
 	top: 65px;
 	left: 60%;
+}
+
+.close-button close-bottom {
+	pointer-events: none;
+	opacity: 0;
 }
 
 /* The Modal (background) */
@@ -51,16 +56,17 @@ html, body {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #EDD8A8;
+    background-color: rgba(237, 216, 168, 0.95);
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
-    width: 33%; /* Could be more or less, depending on screen size */
+    border: 0px solid #888;
+	height: 25%;
+    width: 15%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .close {
-    color: #aaa;
+    color: #666666;
     float: right;
     font-size: 28px;
     font-weight: bold;
