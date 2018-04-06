@@ -1,5 +1,8 @@
 body {
 	background-color: #EDD8A8;
+	font-family: 'Arimo', sans-serif;
+	text-align: center;
+
 }
 
 html, body {
@@ -59,7 +62,7 @@ html, body {
     background-color: rgba(237, 216, 168, 0.95);
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 0px solid #888;
+    border: 5px rgba (0, 0, 0, 0.5);
 	height: 25%;
     width: 15%; /* Could be more or less, depending on screen size */
 }
