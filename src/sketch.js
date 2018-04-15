@@ -12,7 +12,7 @@ GLOBAL VARIABLES
 // GLOBAL QUADARRAY SETTINGS
 let rows = 13;
 let columns = 13;
-let quadHeight = 30;
+let quadHeight = 25;
 let quadWidth = 30;
 
 // GLOBAL TORSIE CANVAS SETTINGS

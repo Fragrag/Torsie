@@ -33,6 +33,7 @@ class QuadElement {
 		if (this.canvasInstance == null) {
 			let originX = (this.x * this.width)+this.xOffset;
 			let originY = (this.y * this.height)+this.yOffset;
+			let horizontalStroke = this.strokeThickness*2
 			
 			strokeWeight(this.strokeThickness);
 			fill(this.quadColor.r, this.quadColor.g, this.quadColor.b);
@@ -43,7 +44,7 @@ class QuadElement {
 				(originX + (this.width * this.torsionType)), (originY + this.height));	
 
 			// Draw lines on the top and bottom of the quad with a thicker stroke
-			strokeWeight(this.strokeThickness*3);
+			strokeWeight(horizontalStroke);
 			line(originX, originY,
 				 (originX + this.width), originY);
 			line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),
@@ -53,6 +54,7 @@ class QuadElement {
 		else if (this.canvasInstance != null) {
 			let originX = (this.x * this.width)+this.xOffset;
 			let originY = (this.y * this.height)+this.yOffset;
+			let horizontalStroke = this.strokeThickness*2
 			
 			this.canvasInstance.strokeWeight(this.strokeThickness);
 			this.canvasInstance.fill(this.quadColor.r, this.quadColor.g, this.quadColor.b);
@@ -63,7 +65,7 @@ class QuadElement {
 				(originX + (this.width * this.torsionType)), (originY + this.height));	
 
 			// Draw lines on the top and bottom of the quad with a thicker stroke
-			this.canvasInstance.strokeWeight(this.strokeThickness*3);
+			this.canvasInstance.strokeWeight(horizontalStroke);
 			this.canvasInstance.line(originX, originY,
 				 (originX + this.width), originY);
 			this.canvasInstance.line((originX + this.width + (this.width * this.torsionType)), (originY + this.height),

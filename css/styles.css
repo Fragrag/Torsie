@@ -1,5 +1,5 @@
 body {
-	background-color: #EDD8A8;
+	background-color: #E9E9E9;
 	font-family: 'Arimo', sans-serif;
 	text-align: center;
 
@@ -59,7 +59,7 @@ html, body {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: rgba(237, 216, 168, 0.95);
+    background-color: #CCCCCC;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 5px rgba (0, 0, 0, 0.5);
