@@ -29,7 +29,10 @@ class QuadElement {
 	
 	//
 	DrawQuad() {
-		
+		// Establishing whether the QuadElement is used in a single canvas instance 
+		// or in multiple instances If this behaviour is not defined the base QuadElement
+		// is incompatible
+		// In the case of Torsie we do use multiple canvases to display the different patterns.
 		if (this.canvasInstance == null) {
 			let originX = (this.x * this.width)+this.xOffset;
 			let originY = (this.y * this.height)+this.yOffset;
@@ -51,6 +54,9 @@ class QuadElement {
 				 (originX + (this.width * this.torsionType)), (originY + this.height))
 		}
 		
+		// Making a QuadElemet compatible with an instanced canvas is done simply by prefixing
+		// the variables with this.canvasInstance. Makes for rather encumbersome reading but 
+		// that's p5.js I guess.
 		else if (this.canvasInstance != null) {
 			let originX = (this.x * this.width)+this.xOffset;
 			let originY = (this.y * this.height)+this.yOffset;

@@ -74,7 +74,6 @@ class QuadArray {
 	
 	// Iterate through this.QuadArray and call DrawQuad function from QuadElement
 	DrawQuadArray() {
-		
 		for (let row = 0; row < this.QuadArray.length; row++) {
 			for (let col = 0; col < this.QuadArray[row].length; col++) {
 				
